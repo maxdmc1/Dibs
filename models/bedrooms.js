@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   const bedrooms = sequelize.define("bedrooms", {
-    devoured: {
+    reserved: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
