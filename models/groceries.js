@@ -1,6 +1,18 @@
-module.exports = function(sequelize, DataTypes) {
-  const Groceries = sequelize.define("Groceries", {
-    text: DataTypes.STRING
-  });
-  return Groceries;
-};
+//Need to test this
+
+module.exports = function(sequelize, DataTypes){
+
+const groceries = sequelize.define('groceries', {
+    groceryList: { 
+        type: DataTypes.STRING, 
+        get: function() {
+            return JSON.parse(this.getDataValue('groceryList'));
+        }, 
+        set: function(val) {
+            return this.setDataValue('groceryList', JSON.stringify(val));
+        }
+    }
+
+}
+
+
