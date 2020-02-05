@@ -2,6 +2,15 @@
 
 const db = require("../../models");
 
+const arrayHelpers = {
+  get: function() {
+    return JSON.parse(this.getDataValue("groceryList"));
+  },
+  set: function(val) {
+    return this.setDataValue("groceryList", JSON.stringify(val));
+  }
+}
+
 module.exports = {
   postBedroomApi: async function(req, res) {
     const dbBedroom = await db.Bedroom.create(req.body);
@@ -83,14 +92,19 @@ module.exports = {
 
     // POST route for saving a new post
     app.post("/api/groceries", function(req, res) {
-      console.log(req.body);
-      db.groceries
-        .create({
-          grocery_list: req.body.grocery_list
-        })
-        .then(function(groceries) {
-          res.json(groceries);
-        });
+      // get the data
+      console.log(req.body.list)
+      req.body.list
+      // // convert data into string
+      // groceries.arrayHelpers();
+      // // push into database
+      // create({
+      // groceries: req.body.groceries
+      //   })
+      //   .then(function(groceries) {
+      //     res.json(groceries);
+      //   });
+
     });
 
     // PUT route for updating a bedroom
