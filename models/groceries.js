@@ -10,7 +10,8 @@ module.exports = function(sequelize, DataTypes) {
       set: function(val) {
         return this.setDataValue("groceryList", JSON.stringify(val));
       }
-    }
+    },
+    TripID: DataTypes.INTEGER
   });
   return groceries;
 };

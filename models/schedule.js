@@ -5,7 +5,9 @@ module.exports = function(sequelize, DataTypes) {
     eveningMeal: DataTypes.STRING,
     morningActivity: DataTypes.STRING,
     afternoonActivity: DataTypes.STRING,
-    eveningActivity: DataTypes.STRING
+    eveningActivity: DataTypes.STRING,
+    date: { type: DataTypes.DATE, allowNull: false },
+    TripID: DataTypes.INTEGER
   });
   return Schedule;
 };
