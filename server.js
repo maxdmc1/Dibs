@@ -1,52 +1,56 @@
-const path = require("path");
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const passport = require("passport");
+require("dotenv").config();
+const express = require("express"),
+  methodOverride = require("method-override"),
+  bodyParser = require("body-parser"),
+  expressSanitizer = require("express-sanitizer"),
+  passport = require("passport"),
+  session = require("express-session"),
+  db = require("./models/index"),
+  app = express(),
+  PORT = process.env.PORT || 3033;
 
-const users = require("./routes/api/users");
-const games = require("./routes/api/games");
-
-const app = express();
-
-// Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+// Middleware
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(expressSanitizer());
+app.use(methodOverride("_method"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
- }
-
-// DB Config
-const db = require("./config/keys").mongoURI;
-
-// Connect to MongoDB
-mongoose
-  .connect(
-    db,
-    { useNewUrlParser: true }
-  )
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
-
-// Passport middleware
+// For Passport
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
 app.use(passport.initialize());
-
-// Passport config
-require("./config/passport")(passport);
+app.use(passport.session()); // persistent login sessions
 
 // Routes
-app.use("/api/users", users);
-app.use("/api/v1/games", games);
+const API = require("./routes/api/api-routes");
+API.api(app);
 
-app.use("*", (req, res) =>
- res.sendFile(path.join(__dirname, "../client/build/index.html"))
-);
+// Commented out auth for now - this may get taken care of on front end
+// const authAPI = require("./routes/api/auth");
+// authAPI.api(app, passport);
 
-const port = process.env.PORT || 5000;
+//load passport strategies
+// require("./config/passport.js")(passport, db.user);
 
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+var syncOptions = { force: false };
+
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
+}
+
+// Starting the server, syncing our models ------------------------------------/
+db.sequelize.sync(syncOptions).then(function() {
+  app.listen(PORT, function() {
+    console.log(
+      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+      PORT,
+      PORT
+    );
+  });
+});
+
+module.exports = app;
