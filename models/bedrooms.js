@@ -4,9 +4,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    
-  }
-  
-  );
+    name: DataTypes.STRING,
+    TripID: DataTypes.INTEGER
+  });
   return bedrooms;
 };
