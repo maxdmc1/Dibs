@@ -1,28 +1,46 @@
-const path = require("path");
-const express = require("express");
-const db = require("./models");
-const bodyParser = require("body-parser");
-const passport = require("passport");
+require("dotenv").config();
+const express = require("express"),
+  methodOverride = require("method-override"),
+  bodyParser = require("body-parser"),
+  expressSanitizer = require("express-sanitizer"),
+  passport = require("passport"),
+  session = require("express-session"),
+  db = require("./models/index"),
+  app = express(),
+  PORT = process.env.PORT || 3033;
 
-const users = require("./routes/api/users");
-const games = require("./routes/api/games");
-
-const app = express();
-const PORT = process.env.PORT || 3000;
-
-// Bodyparser middleware
-app.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
-);
+// Middleware
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(expressSanitizer());
+app.use(methodOverride("_method"));
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+// For Passport
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+// Routes
+const API = require("./routes/api/api-routes");
+API.api(app);
+
+// Commented out auth for now - this may get taken care of on front end
+// const authAPI = require("./routes/api/auth");
+// authAPI.api(app, passport);
+
+//load passport strategies
+// require("./config/passport.js")(passport, db.user);
+
+var syncOptions = { force: false };
+
+// If running a test, set syncOptions.force to true
+// clearing the `testdb`
+if (process.env.NODE_ENV === "test") {
+  syncOptions.force = true;
 }
-
-// DB Config
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
@@ -34,24 +52,5 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
-
-// Passport middleware
-app.use(passport.initialize());
-
-// Passport config
-require("./config/passport")(passport);
-
-// Routes - This will Need to Be UPDATED once Routes are complete
-// CHECK THESE ROUTES!!!!!
-app.use("/api/users", users);
-app.use("/api/v1/games", games);
-
-app.use("*", (req, res) =>
-  res.sendFile(path.join(__dirname, "../client/build/index.html"))
-);
-
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
 
 module.exports = app;
