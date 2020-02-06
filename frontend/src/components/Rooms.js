@@ -1,11 +1,12 @@
 import React from "react";
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
+import Row from 'react-bootstrap/Row'
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 
 
-export default function Meals() {
+
+export default function Rooms() {
     return (
         <Container>
             <Row>
