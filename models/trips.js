@@ -4,9 +4,9 @@ module.exports = function(sequelize, DataTypes) {
     numBedrooms: DataTypes.INTEGER,
     firstDay: { type: DataTypes.DATE, allowNull: false },
     lastDay: { type: DataTypes.DATE, allowNull: false },
-    userIDs: {
-      /*"array of userIds"*/
-    }
+    // userIDs: {
+    //   /*"array of userIds"*/
+    // }
   });
-  return Answers;
+  return Trips;
 };
