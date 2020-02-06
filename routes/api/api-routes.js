@@ -90,20 +90,24 @@ module.exports = {
       });
     });
 
+    //Ask Brian about for loop
+    //Missing some syntax to make this work
+
     // POST route for saving a new post
     app.post("/api/groceries", function(req, res) {
       // get the data
-      console.log(req.body.list)
-      req.body.list
+      console.log(req.body.groceries)
+      // req.body.groceries
       // // convert data into string
-      // groceries.arrayHelpers();
+      const groceries = JSON.stringify(req.body.groceries);
+      console.log(groceries)
       // // push into database
-      // create({
-      // groceries: req.body.groceries
-      //   })
-      //   .then(function(groceries) {
-      //     res.json(groceries);
-      //   });
+      db.groceries.create({
+      groceryList: groceries
+        })
+        .then(function(groceries) {
+          res.json(groceries);
+        });
 
     });
 
