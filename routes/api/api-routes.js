@@ -27,11 +27,15 @@ module.exports = {
 
     // POST route for saving a new post
     app.post("/api/bedrooms", function(req, res) {
-      console.log(req.body);
-      db.bedrooms
-        .create({
-          room_number: req.body.room_number,
-          defaultValue: false
+    // get the data
+      console.log(req.body.bedrooms)
+      // req.body.groceries
+      // // convert data into string
+      const bedrooms = req.body.bedrooms;
+      console.log(bedrooms)
+      // // push into database
+      db.bedrooms.create({
+      roomNumbers: bedrooms
         })
         .then(function(bedrooms) {
           res.json(bedrooms);
@@ -61,9 +65,10 @@ module.exports = {
     // POST route for saving a new post
     app.post("/api/answers", function(req, res) {
       console.log(req.body);
+      const answers = req.body.answers;
       db.answers
         .create({
-          answer_info: req.body.answer_info
+          answer_info: req.body.answers
         })
         .then(function(answers) {
           res.json(answers);
@@ -89,9 +94,6 @@ module.exports = {
         console.log(groceries);
       });
     });
-
-    //Ask Brian about for loop
-    //Missing some syntax to make this work
 
     // POST route for saving a new post
     app.post("/api/groceries", function(req, res) {
