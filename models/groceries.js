@@ -1,7 +1,9 @@
 //Need to test this
+const Sequelize = require("sequelize");
+const db = require("./");
 
 module.exports = function(sequelize, DataTypes) {
-  const groceries = sequelize.define("groceries", {
+  const Groceries = sequelize.define("Groceries", {
     groceryList: {
       type: DataTypes.STRING,
 
@@ -11,16 +13,15 @@ module.exports = function(sequelize, DataTypes) {
       set: function(val) {
         return this.setDataValue("groceryList", JSON.stringify(val));
       }
-    },
-
-    // Trip_ID: {
-    //   type: Sequelize.INTEGER,
-    //   references: {
-    //     model: Trips,
-    //     key: "id"
-    //   }
-    // }
-
+    }
   });
-  return groceries;
+
+  Groceries.associate = function(models) {
+    Groceries.belongsTo(models.Trip, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+  return Groceries;
 };

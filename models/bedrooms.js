@@ -1,17 +1,21 @@
+const Sequelize = require("sequelize");
+const db = require("./");
+
 module.exports = function(sequelize, DataTypes) {
-  const bedrooms = sequelize.define("bedrooms", {
+  const Bedrooms = sequelize.define("Bedrooms", {
     reserved: {
       type: DataTypes.BOOLEAN,
       defaultValue: false
     },
-    // name: DataTypes.STRING,
-    // Trip_ID: {
-    //   type: Sequelize.INTEGER,
-    //   references: {
-    //     model: Trips,
-    //     key: "id"
-    //   }
-    // }
+    name: DataTypes.STRING,
+    aboutRoom: DataTypes.STRING
   });
-  return bedrooms;
+  Bedrooms.associate = function(models) {
+    Bedrooms.belongsTo(models.Trip, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+  return Bedrooms;
 };
