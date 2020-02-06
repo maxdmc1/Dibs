@@ -12,8 +12,13 @@ module.exports = function(sequelize, DataTypes) {
         return this.setDataValue("groceryList", JSON.stringify(val));
       }
     },
-    TripID: DataTypes.INTEGER
-
+    Trip_ID: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: Trips,
+        key: "id"
+      }
+    }
   });
   return groceries;
 };

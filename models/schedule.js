@@ -7,7 +7,13 @@ module.exports = function(sequelize, DataTypes) {
     afternoonActivity: DataTypes.STRING,
     eveningActivity: DataTypes.STRING,
     date: { type: DataTypes.DATE, allowNull: false },
-    TripID: DataTypes.INTEGER
+    Trip_ID: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: Trips,
+        key: "id"
+      }
+    }
   });
   return Schedule;
 };

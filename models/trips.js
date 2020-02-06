@@ -8,5 +8,5 @@ module.exports = function(sequelize, DataTypes) {
       /*"array of userIds"*/
     }
   });
-  return Answers;
+  return Trips;
 };

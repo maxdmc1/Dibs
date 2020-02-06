@@ -5,7 +5,13 @@ module.exports = function(sequelize, DataTypes) {
       defaultValue: false
     },
     name: DataTypes.STRING,
-    TripID: DataTypes.INTEGER
+    Trip_ID: {
+      type: Sequelize.INTEGER,
+      references: {
+        model: Trips,
+        key: "id"
+      }
+    }
   });
   return bedrooms;
 };
