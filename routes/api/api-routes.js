@@ -31,7 +31,7 @@ module.exports = {
       console.log(req.body.bedrooms)
       // req.body.groceries
       // // convert data into string
-      const bedrooms = JSON.stringify(req.body.bedrooms);
+      const bedrooms = req.body.bedrooms;
       console.log(bedrooms)
       // // push into database
       db.bedrooms.create({
@@ -65,9 +65,10 @@ module.exports = {
     // POST route for saving a new post
     app.post("/api/answers", function(req, res) {
       console.log(req.body);
+      const answers = req.body.answers;
       db.answers
         .create({
-          answer_info: req.body.answer_info
+          answer_info: req.body.answers
         })
         .then(function(answers) {
           res.json(answers);
