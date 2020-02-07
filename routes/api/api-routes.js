@@ -34,55 +34,23 @@ module.exports = {
       const Bedrooms = req.body.Bedrooms;
       console.log(Bedrooms);
       // // push into database
-      db.Bedrooms.create({
-        roomNumbers: Bedrooms
-      }).then(function(Bedrooms) {
-        res.json(Bedrooms);
-      });
+      db.Bedrooms
+        .create({
+          roomNumbers: Bedrooms
+        })
+        .then(function(Bedrooms) {
+          res.json(Bedrooms);
+        });
     });
 
     // PUT route for updating a bedroom
 
     app.put("/api/bedrooms/:id", function(req, res) {
       console.log(req.params.id);
-      db.Bedrooms.update(
-        { reserved: true },
-        { where: { id: req.params.id } }
-      ).then(function(Bedrooms) {
-        res.json(Bedrooms);
-      });
-    });
-
-    app.get("/api/answers", function(req, res) {
-      db.answers.findAll({}).then(function(answers) {
-        res.json(answers);
-        console.log(answers);
-      });
-    });
-
-    // POST route for saving a new post
-    app.post("/api/answers", function(req, res) {
-      console.log(req.body);
-      const answers = req.body.answers;
-      db.answers
-        .create({
-          answer_info: req.body.answers
-        })
-        .then(function(answers) {
-          res.json(answers);
-        });
-    });
-
-    // PUT route for updating a bedroom
-
-    app.put("/api/answers/:id", function(req, res) {
-      console.log(req.params.id);
-      db.answers
-        .update({
-          where: { id: req.params.id }
-        })
-        .then(function(answers) {
-          res.json(answers);
+      db.Bedrooms
+        .update({ reserved: true }, { where: { id: req.params.id } })
+        .then(function(Bedrooms) {
+          res.json(Bedrooms);
         });
     });
 
@@ -125,7 +93,7 @@ module.exports = {
     });
     // Post Route for a new Trip
 
-        app.get("/api/trips", function(req, res) {
+    app.get("/api/trips", function(req, res) {
       db.Trips.findAll({}).then(function(Trips) {
         res.json(Trips);
         console.log(Trips);
@@ -133,14 +101,10 @@ module.exports = {
     });
 
     app.post("/api/trips", function(req, res) {
-      console.log(req.body);
-      db.Trips
-        .create(
-          req.body
-        )
-        .then(function(Trips) {
-          res.json(Trips);
-        });
+      console.log(req.body.Trips);
+      db.Trips.create(req.body).then(function(Trips) {
+        res.json(Trips);
+      });
     });
 
     // PUT route for updating a bedroom
@@ -155,8 +119,5 @@ module.exports = {
           res.json(Trips);
         });
     });
-
-}
-
+  }
 };
-
