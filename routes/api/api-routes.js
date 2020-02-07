@@ -125,9 +125,38 @@ module.exports = {
     });
     // Post Route for a new Trip
 
-    app.post("/api/trips", function(req, res) {
-      const dbTrip = db.Trips.create(req.body);
-      res.json(dbTrip);
+        app.get("/api/trips", function(req, res) {
+      db.Trips.findAll({}).then(function(Trips) {
+        res.json(Trips);
+        console.log(Trips);
+      });
     });
-  }
+
+    app.post("/api/trips", function(req, res) {
+      console.log(req.body);
+      db.Trips
+        .create(
+          req.body
+        )
+        .then(function(Trips) {
+          res.json(Trips);
+        });
+    });
+
+    // PUT route for updating a bedroom
+
+    app.put("/api/trips/:id", function(req, res) {
+      console.log(req.params.id);
+      db.Trips
+        .update({
+          where: { id: req.params.id }
+        })
+        .then(function(Trips) {
+          res.json(Trips);
+        });
+    });
+
+}
+
 };
+

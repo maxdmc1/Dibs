@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
   });
 
   Groceries.associate = function(models) {
-    Groceries.belongsTo(models.Trip, {
+    Groceries.belongsTo(models.Trips, {
       foreignKey: {
         allowNull: false
       }

@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     aboutRoom: DataTypes.STRING
   });
   Bedrooms.associate = function(models) {
-    Bedrooms.belongsTo(models.Trip, {
+    Bedrooms.belongsTo(models.Trips, {
       foreignKey: {
         allowNull: false
       }
