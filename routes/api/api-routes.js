@@ -28,16 +28,16 @@ module.exports = {
     // POST route for saving a new post
     app.post("/api/bedrooms", function(req, res) {
       // get the data
-      console.log(req.body.Bedrooms);
+      console.log(req.body);
       // req.body.groceries
       // // convert data into string
-      const Bedrooms = req.body.Bedrooms;
+      const Bedrooms = req.body;
       console.log(Bedrooms);
       // // push into database
       db.Bedrooms
-        .create({
-          roomNumbers: Bedrooms
-        })
+        .create(
+          req.body
+        )
         .then(function(Bedrooms) {
           res.json(Bedrooms);
         });
