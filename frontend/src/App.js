@@ -1,5 +1,5 @@
 import React from 'react';
-// import ShoppingList from './components/ShoppingList'
+
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from './components/Navbar.js';
@@ -10,13 +10,22 @@ import Rooms from './components/Rooms';
 import ScheduleHeader from './components/ScheduleHeader';
 import MealsHeader from './components/MealsHeader';
 import BedroomsHeader from './components/BedroomsHeader';
+import LogoHeader from './components/LogoHeader';
+
+
+
+
+
 
 
 export default function Nav() {
+  
   return (
     <div>
 
+      <LogoHeader />
       <Navbar />
+      
       <Annoucements />
       <ScheduleHeader />
       <Schedule />
