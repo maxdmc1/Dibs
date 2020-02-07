@@ -41,6 +41,7 @@ module.exports = {
         .then(function(Bedrooms) {
           console.log("remove me later lol")
           res.json(Bedrooms);
+
         });
     });
 
@@ -65,16 +66,16 @@ module.exports = {
     // POST route for saving a new post
     app.post("/api/groceries", function(req, res) {
       // get the data
-      console.log(req.body.groceries);
+      console.log(req.body);
       // req.body.groceries
       // // convert data into string
-      const groceries = JSON.stringify(req.body.groceries);
+      const groceries = JSON.stringify(req.body);
       console.log(groceries);
       // // push into database
-      db.groceries
-        .create({
-          groceryList: groceries
-        })
+      db.Groceries
+        .create(
+          req.body
+        )
         .then(function(groceries) {
           res.json(groceries);
         });
