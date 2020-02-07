@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     date: { type: DataTypes.DATE, allowNull: false }
   });
   Schedule.associate = function(models) {
-    Schedule.belongsTo(models.Trip, {
+    Schedule.belongsTo(models.Trips, {
       foreignKey: {
         allowNull: false
       }

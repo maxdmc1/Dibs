@@ -2,11 +2,11 @@ const Sequelize = require("sequelize");
 const Bedrooms = require("./bedrooms");
 
 module.exports = function(sequelize, DataTypes) {
-  const Trips = sequelize.define("Trip", {
+  const Trips = sequelize.define("Trips", {
     TripName: { type: DataTypes.STRING, allowNull: false },
     numBedrooms: DataTypes.INTEGER,
-    firstDay: { type: DataTypes.DATE, allowNull: false },
-    lastDay: { type: DataTypes.DATE, allowNull: false },
+    firstDay: { type: DataTypes.INTEGER, allowNull: false },
+    lastDay: { type: DataTypes.INTEGER, allowNull: false },
     userList: {
       type: DataTypes.STRING,
 
