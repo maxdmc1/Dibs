@@ -6,7 +6,7 @@ import RoomsImage from '../images/Rooms.png'
 
 export default function RoomsHeader() {
     return (
-        <Container>
+        <Container id="rooms">
             <Image src={RoomsImage} fluid />
         </Container>
     );

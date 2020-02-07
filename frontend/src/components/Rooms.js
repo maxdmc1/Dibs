@@ -1,108 +1,130 @@
 import React from "react";
-import Card from 'react-bootstrap/Card'
+import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
+import Col from 'react-bootstrap/Col'
+import Card from 'react-bootstrap/Card'
+import RoomsImage from '../images/beds.png';
 
 
 
-export default function Rooms() {
+export default function Meals() {
     return (
-        <Container>
+        <Container >
             <Row>
                 <Col>
                     <>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                            <Card.Header>Header</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Primary Card Title</Card.Title>
+                        <Card text="white" style={{ width: '18rem' }}>
+
+                            <Card.Img src={RoomsImage} />
+
+                            <Card.ImgOverlay>
+
+                                <Card.Title>Room 1</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
-                </Card.Text>
-                            </Card.Body>
+                                </Card.Text>
+                            </Card.ImgOverlay>
                         </Card>
                         <br />
                     </>
                 </Col>
                 <Col>
                     <>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                            <Card.Header>Header</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Primary Card Title</Card.Title>
+                        <Card text="white" style={{ width: '18rem' }}>
+
+                            <Card.Img src={RoomsImage} />
+
+                            <Card.ImgOverlay>
+
+                                <Card.Title>Room 2</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
-                </Card.Text>
-                            </Card.Body>
+                                </Card.Text>
+                            </Card.ImgOverlay>
                         </Card>
                         <br />
                     </>
-                </Col>
-                <Col>
+                </Col><Col>
                     <>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                            <Card.Header>Header</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Primary Card Title</Card.Title>
+                        <Card text="white" style={{ width: '18rem' }}>
+
+                            <Card.Img src={RoomsImage} />
+
+                            <Card.ImgOverlay>
+
+                                <Card.Title>Room 3</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
-                </Card.Text>
-                            </Card.Body>
+                                </Card.Text>
+                            </Card.ImgOverlay>
                         </Card>
                         <br />
                     </>
                 </Col>
+
+
             </Row>
             <Row>
                 <Col>
                     <>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                            <Card.Header>Header</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Primary Card Title</Card.Title>
+                        <Card text="white" style={{ width: '18rem' }}>
+
+                            <Card.Img src={RoomsImage} />
+
+                            <Card.ImgOverlay>
+
+                                <Card.Title>Room 4</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
-                </Card.Text>
-                            </Card.Body>
+                                </Card.Text>
+                            </Card.ImgOverlay>
                         </Card>
                         <br />
                     </>
                 </Col>
                 <Col>
                     <>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                            <Card.Header>Header</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Primary Card Title</Card.Title>
+                        <Card text="white" style={{ width: '18rem' }}>
+
+                            <Card.Img src={RoomsImage} />
+
+                            <Card.ImgOverlay>
+
+                                <Card.Title>Room 5</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
-                </Card.Text>
-                            </Card.Body>
+                                </Card.Text>
+                            </Card.ImgOverlay>
                         </Card>
                         <br />
                     </>
-                </Col>
-                <Col>
+                </Col><Col>
                     <>
-                        <Card bg="primary" text="white" style={{ width: '18rem' }}>
-                            <Card.Header>Header</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Primary Card Title</Card.Title>
+                        <Card text="white" style={{ width: '18rem' }}>
+
+                            <Card.Img src={RoomsImage} />
+
+                            <Card.ImgOverlay>
+
+                                <Card.Title>Room 6</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
-                </Card.Text>
-                            </Card.Body>
+                                </Card.Text>
+                            </Card.ImgOverlay>
                         </Card>
                         <br />
                     </>
                 </Col>
+
+
             </Row>
+
         </Container>
 
     );
