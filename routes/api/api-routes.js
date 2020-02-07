@@ -26,7 +26,7 @@ module.exports = {
     });
 
     // POST route for saving a new post
-    app.post("/api/Bedrooms", function(req, res) {
+    app.post("/api/bedrooms", function(req, res) {
       // get the data
       console.log(req.body.Bedrooms);
       // req.body.groceries
@@ -43,7 +43,7 @@ module.exports = {
 
     // PUT route for updating a bedroom
 
-    app.put("/api/Bedrooms/:id", function(req, res) {
+    app.put("/api/bedrooms/:id", function(req, res) {
       console.log(req.params.id);
       db.Bedrooms.update(
         { reserved: true },
