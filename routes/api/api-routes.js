@@ -9,7 +9,7 @@ const arrayHelpers = {
   set: function(val) {
     return this.setDataValue("groceryList", JSON.stringify(val));
   }
-}
+};
 
 module.exports = {
   postBedroomApi: async function(req, res) {
@@ -19,40 +19,38 @@ module.exports = {
   // GET route for getting all of the bedrooms
   api: function(app) {
     app.get("/api/bedrooms", function(req, res) {
-      db.bedrooms.findAll({}).then(function(bedrooms) {
-        res.json(bedrooms);
-        console.log(bedrooms);
+      db.Bedrooms.findAll({}).then(function(Bedrooms) {
+        res.json(Bedrooms);
+        console.log(Bedrooms);
       });
     });
 
     // POST route for saving a new post
-    app.post("/api/bedrooms", function(req, res) {
-    // get the data
-      console.log(req.body.bedrooms)
+    app.post("/api/Bedrooms", function(req, res) {
+      // get the data
+      console.log(req.body.Bedrooms);
       // req.body.groceries
       // // convert data into string
-      const bedrooms = req.body.bedrooms;
-      console.log(bedrooms)
+      const Bedrooms = req.body.Bedrooms;
+      console.log(Bedrooms);
       // // push into database
-      db.bedrooms.create({
-      roomNumbers: bedrooms
-        })
-        .then(function(bedrooms) {
-          res.json(bedrooms);
-        });
+      db.Bedrooms.create({
+        roomNumbers: Bedrooms
+      }).then(function(Bedrooms) {
+        res.json(Bedrooms);
+      });
     });
 
     // PUT route for updating a bedroom
 
-    app.put("/api/bedrooms/:id", function(req, res) {
+    app.put("/api/Bedrooms/:id", function(req, res) {
       console.log(req.params.id);
-      db.bedrooms
-        .update({
-          where: { id: req.params.id }
-        })
-        .then(function(bedrooms) {
-          res.json(bedrooms);
-        });
+      db.Bedrooms.update(
+        { reserved: true },
+        { where: { id: req.params.id } }
+      ).then(function(Bedrooms) {
+        res.json(Bedrooms);
+      });
     });
 
     app.get("/api/answers", function(req, res) {
@@ -98,19 +96,19 @@ module.exports = {
     // POST route for saving a new post
     app.post("/api/groceries", function(req, res) {
       // get the data
-      console.log(req.body.groceries)
+      console.log(req.body.groceries);
       // req.body.groceries
       // // convert data into string
       const groceries = JSON.stringify(req.body.groceries);
-      console.log(groceries)
+      console.log(groceries);
       // // push into database
-      db.groceries.create({
-      groceryList: groceries
+      db.groceries
+        .create({
+          groceryList: groceries
         })
         .then(function(groceries) {
           res.json(groceries);
         });
-
     });
 
     // PUT route for updating a bedroom
@@ -124,6 +122,12 @@ module.exports = {
         .then(function(groceries) {
           res.json(groceries);
         });
+    });
+    // Post Route for a new Trip
+
+    app.post("/api/trips", function(req, res) {
+      const dbTrip = db.Trips.create(req.body);
+      res.json(dbTrip);
     });
   }
 };

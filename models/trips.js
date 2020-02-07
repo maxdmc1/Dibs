@@ -11,10 +11,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
 
       get: function() {
-        return JSON.parse(this.getDataValue("groceryList"));
+        return JSON.parse(this.getDataValue("userList"));
       },
       set: function(val) {
-        return this.setDataValue("groceryList", JSON.stringify(val));
+        return this.setDataValue("userList", JSON.stringify(val));
       }
     }
   });
