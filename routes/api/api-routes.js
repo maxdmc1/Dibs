@@ -39,6 +39,7 @@ module.exports = {
           req.body
         )
         .then(function(Bedrooms) {
+          console.log("remove me later lol")
           res.json(Bedrooms);
         });
     });
