@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
-import MealsImage from '../images/meals.jpg';
+import RoomsImage from '../images/beds.png';
 
 
 
@@ -15,11 +15,11 @@ export default function Meals() {
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
 
-                            <Card.Img src={MealsImage} />
+                            <Card.Img src={RoomsImage} />
 
                             <Card.ImgOverlay>
 
-                                <Card.Title>Day 1</Card.Title>
+                                <Card.Title>Room 1</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
@@ -33,11 +33,11 @@ export default function Meals() {
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
 
-                            <Card.Img src={MealsImage} />
+                            <Card.Img src={RoomsImage} />
 
                             <Card.ImgOverlay>
 
-                                <Card.Title>Day 2</Card.Title>
+                                <Card.Title>Room 2</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
@@ -50,11 +50,11 @@ export default function Meals() {
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
 
-                            <Card.Img src={MealsImage} />
+                            <Card.Img src={RoomsImage} />
 
                             <Card.ImgOverlay>
 
-                                <Card.Title>Day 3</Card.Title>
+                                <Card.Title>Room 3</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
@@ -72,11 +72,11 @@ export default function Meals() {
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
 
-                            <Card.Img src={MealsImage} />
+                            <Card.Img src={RoomsImage} />
 
                             <Card.ImgOverlay>
 
-                                <Card.Title>Day 4</Card.Title>
+                                <Card.Title>Room 4</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
@@ -90,11 +90,11 @@ export default function Meals() {
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
 
-                            <Card.Img src={MealsImage} />
+                            <Card.Img src={RoomsImage} />
 
                             <Card.ImgOverlay>
 
-                                <Card.Title>Day 5</Card.Title>
+                                <Card.Title>Room 5</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
@@ -107,11 +107,11 @@ export default function Meals() {
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
 
-                            <Card.Img src={MealsImage} />
+                            <Card.Img src={RoomsImage} />
 
                             <Card.ImgOverlay>
 
-                                <Card.Title>Day 6</Card.Title>
+                                <Card.Title>Room 6</Card.Title>
                                 <Card.Text>
                                     Some quick example text to build on the card title and make up the bulk
                                     of the card's content.
@@ -124,7 +124,7 @@ export default function Meals() {
 
 
             </Row>
-        
+
         </Container>
 
     );
