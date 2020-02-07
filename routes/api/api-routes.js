@@ -33,7 +33,7 @@ module.exports = {
       // // convert data into string
       const Bedrooms = req.body;
       console.log(Bedrooms);
-      // // push into database
+      // // push into database 
       db.Bedrooms
         .create(
           req.body
