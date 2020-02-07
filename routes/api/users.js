@@ -10,14 +10,14 @@ const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
 // Load User model
-const User = require("../../models/User");
+const db = require("../../models");
 
 // @route POST api/users/register
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
   // Form validation
-
+console.log(req.body);
   const { errors, isValid } = validateRegisterInput(req.body);
 
   // Check validation
@@ -25,23 +25,23 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  User.findOne({ email: req.body.email }).then(user => {
+  db.Users.findOne({ email: req.body.email }).then(user => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
-      const newUser = new User({
+      const newUser = {
         name: req.body.name,
         email: req.body.email,
         password: req.body.password
-      });
+      };
 
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
           if (err) throw err;
           newUser.password = hash;
-          newUser
-            .save()
+          //Need to figure out syntax to push this through
+          db.Users.create(newUser)
             .then(user => res.json(user))
             .catch(err => console.log(err));
         });
@@ -66,8 +66,14 @@ router.post("/login", (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
+  //UPDATE DB, DELETE TABLE AND START OVER
+
   // Find user by email
-  User.findOne({ email }).then(user => {
+  db.users.findAll({
+  where: {
+    email: email
+  }
+}).then(user => {
     // Check if user exists
     if (!user) {
       return res.status(404).json({ emailnotfound: "Email not found" });
