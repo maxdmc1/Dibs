@@ -21,8 +21,7 @@ export default function Meals() {
 
                                 <Card.Title>Room 1</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    Call Dibbs! on this room
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -39,8 +38,7 @@ export default function Meals() {
 
                                 <Card.Title>Room 2</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    Call Dibbs! on this room
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -56,8 +54,7 @@ export default function Meals() {
 
                                 <Card.Title>Room 3</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    Call Dibbs! on this room
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -78,8 +75,7 @@ export default function Meals() {
 
                                 <Card.Title>Room 4</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    Call Dibbs! on this room
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -96,8 +92,7 @@ export default function Meals() {
 
                                 <Card.Title>Room 5</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    Call Dibbs! on this room
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -113,8 +108,7 @@ export default function Meals() {
 
                                 <Card.Title>Room 6</Card.Title>
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    Call Dibbs! on this room
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>

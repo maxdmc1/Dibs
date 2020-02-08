@@ -18,12 +18,13 @@ import LogoHeader from './components/LogoHeader';
 
 
 
-export default function Nav() {
+export default function App() {
   
   return (
     <div>
 
       <LogoHeader />
+      <br />
       <Navbar />
       
       <Annoucements />
