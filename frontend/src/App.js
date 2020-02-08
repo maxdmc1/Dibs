@@ -11,8 +11,9 @@ import ScheduleHeader from './components/ScheduleHeader';
 import MealsHeader from './components/MealsHeader';
 import BedroomsHeader from './components/BedroomsHeader';
 import LogoHeader from './components/LogoHeader';
-
-
+import AnnouncementsHeader from './components/AnnouncementsHeader';
+import ShoppingHeader from './components/ShoppingHeader';
+import ShoppingList from './components/ShoppingList';
 
 
 
@@ -26,8 +27,10 @@ export default function App() {
       <LogoHeader />
       <br />
       <Navbar />
-      
+      <AnnouncementsHeader />
       <Annoucements />
+      <ShoppingHeader />
+      <ShoppingList />
       <ScheduleHeader />
       <Schedule />
       <MealsHeader />

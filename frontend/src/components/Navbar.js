@@ -28,6 +28,8 @@ function Menu() {
                   <Dropdown.Item href="#/action-3">trip 3</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+              <Button variant="danger" href="#announcements">Announcements</Button>
+              <Button variant="secondary" href="#list">Shopping List</Button>
               <Button variant="primary" href="#schedule">Activity Schedule</Button>
               <Button variant="success" href="#meals">Meal Plan</Button>
               <Button variant="danger" href="#rooms">Bedrooms</Button>
