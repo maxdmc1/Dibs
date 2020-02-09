@@ -9,30 +9,36 @@ import ListGroup from 'react-bootstrap/ListGroup'
 export default function Annoucements() {
     return (
         <Container>
+            <br />
             <Row>
                 <Col>
-                    <ListGroup as="ul">
-                        <ListGroup.Item as="li" active>
+                    <>
+                        <ListGroup as="ul">
+                            <ListGroup.Item variant="primary">
                                 Annoucements
-                        </ListGroup.Item>
-                        <ListGroup.Item as="li">Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item as="li" disabled>
-                            Morbi leo risus
-                        </ListGroup.Item>
-                        <ListGroup.Item as="li">Porta ac consectetur ac</ListGroup.Item>
-                    </ListGroup>
+                            </ListGroup.Item>
+                            <ListGroup.Item as="li">Communicate with your group</ListGroup.Item>
+                            <ListGroup.Item as="li" disabled>
+                               
+                            </ListGroup.Item>
+                            <ListGroup.Item as="li"></ListGroup.Item>
+                        </ListGroup>
+                    </>
                 </Col>
                 <Col>
-                    <ListGroup as="ul">
-                        <ListGroup.Item as="li" active>
-                            Shopping List
-                        </ListGroup.Item>
-                        <ListGroup.Item as="li">Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item as="li" disabled>
-                            Morbi leo risus
-                        </ListGroup.Item>
-                        <ListGroup.Item as="li">Porta ac consectetur ac</ListGroup.Item>
-                    </ListGroup>
+                    <>
+                        <ListGroup as="ul">
+                            <ListGroup.Item variant="dark">
+                                Shopping List
+                            </ListGroup.Item>
+                            <ListGroup.Item as="li">Add items to your group shopping list</ListGroup.Item>
+                            <ListGroup.Item as="li" disabled>
+                               
+                            </ListGroup.Item>
+                            <ListGroup.Item as="li"></ListGroup.Item>
+                        </ListGroup>
+                    <br />
+                    </>
                 </Col>
 
             </Row>

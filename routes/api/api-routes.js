@@ -28,15 +28,14 @@ module.exports = {
     // POST route for saving a new post
     app.post("/api/bedrooms", function(req, res) {
       // get the data
-      console.log(req.body.Bedrooms);
+      console.log(req.body);
       // req.body.groceries
       // // convert data into string
-      const Bedrooms = req.body.Bedrooms;
+      const Bedrooms = req.body;
       console.log(Bedrooms);
       // // push into database
-      db.Bedrooms.create({
-        roomNumbers: Bedrooms
-      }).then(function(Bedrooms) {
+      db.Bedrooms.create(req.body).then(function(Bedrooms) {
+        console.log("remove me later lol");
         res.json(Bedrooms);
       });
     });
@@ -53,39 +52,6 @@ module.exports = {
       });
     });
 
-    app.get("/api/answers", function(req, res) {
-      db.answers.findAll({}).then(function(answers) {
-        res.json(answers);
-        console.log(answers);
-      });
-    });
-
-    // POST route for saving a new post
-    app.post("/api/answers", function(req, res) {
-      console.log(req.body);
-      const answers = req.body.answers;
-      db.answers
-        .create({
-          answer_info: req.body.answers
-        })
-        .then(function(answers) {
-          res.json(answers);
-        });
-    });
-
-    // PUT route for updating a bedroom
-
-    app.put("/api/answers/:id", function(req, res) {
-      console.log(req.params.id);
-      db.answers
-        .update({
-          where: { id: req.params.id }
-        })
-        .then(function(answers) {
-          res.json(answers);
-        });
-    });
-
     app.get("/api/groceries", function(req, res) {
       db.groceries.findAll({}).then(function(groceries) {
         res.json(groceries);
@@ -96,15 +62,13 @@ module.exports = {
     // POST route for saving a new post
     app.post("/api/groceries", function(req, res) {
       // get the data
-      console.log(req.body.groceries);
+      console.log(req.body);
       // req.body.groceries
       // // convert data into string
-      const groceries = JSON.stringify(req.body.groceries);
+      const groceries = JSON.stringify(req.body);
       console.log(groceries);
       // // push into database
-      db.Groceries.create({
-        groceryList: groceries
-      }).then(function(groceries) {
+      db.Groceries.create(req.body).then(function(groceries) {
         res.json(groceries);
       });
     });
@@ -131,7 +95,7 @@ module.exports = {
     });
 
     app.post("/api/trips", function(req, res) {
-      console.log(req.body);
+      console.log(req.body.Trips);
       db.Trips.create(req.body).then(function(Trips) {
         res.json(Trips);
       });
