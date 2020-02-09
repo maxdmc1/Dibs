@@ -37,6 +37,9 @@ module.exports = function(sequelize, DataTypes) {
     Trips.hasMany(models.Schedule, {
       onDelete: "cascade"
     });
+    Trips.hasMany(models.Notes, {
+      onDelete: "cascade"
+    });
   };
   return Trips;
 };
