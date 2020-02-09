@@ -5,8 +5,14 @@ module.exports = function(sequelize, DataTypes) {
   const Trips = sequelize.define("Trips", {
     TripName: { type: DataTypes.STRING, allowNull: false },
     numBedrooms: DataTypes.INTEGER,
-    firstDay: { type: DataTypes.INTEGER, allowNull: false },
-    lastDay: { type: DataTypes.INTEGER, allowNull: false },
+    firstDay: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    } /*DATEONLY (for later)*/,
+    lastDay: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    } /*DATEONLY (for later)*/,
     userList: {
       type: DataTypes.STRING,
 
@@ -29,6 +35,9 @@ module.exports = function(sequelize, DataTypes) {
       onDelete: "cascade"
     });
     Trips.hasMany(models.Schedule, {
+      onDelete: "cascade"
+    });
+    Trips.hasMany(models.Notes, {
       onDelete: "cascade"
     });
   };

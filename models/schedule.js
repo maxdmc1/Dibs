@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     morningActivity: DataTypes.STRING,
     afternoonActivity: DataTypes.STRING,
     eveningActivity: DataTypes.STRING,
-    date: { type: DataTypes.DATE, allowNull: false }
+    date: { type: DataTypes.DATEONLY, allowNull: false }
   });
   Schedule.associate = function(models) {
     Schedule.belongsTo(models.Trips, {
