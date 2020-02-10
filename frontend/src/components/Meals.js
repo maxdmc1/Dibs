@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import MealsImage from '../images/meals.jpg';
-
+import Button from 'react-bootstrap/Button';
 
 
 export default function Meals() {
@@ -27,6 +27,7 @@ export default function Meals() {
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
+                        <Button variant="success" href="#meals">Save</Button>
                         <br />
                     </>
                 </Col>
@@ -46,6 +47,7 @@ export default function Meals() {
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
+                        <Button variant="success" href="#meals">Save</Button>
                         <br />
                     </>
                 </Col><Col>
@@ -64,6 +66,7 @@ export default function Meals() {
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
+                        <Button variant="success" href="#meals">Save</Button>
                         <br />
                     </>
                 </Col>
@@ -87,6 +90,7 @@ export default function Meals() {
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
+                        <Button variant="success" href="#meals">Save</Button>
                         <br />
                     </>
                 </Col>
@@ -106,6 +110,7 @@ export default function Meals() {
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
+                        <Button variant="success" href="#meals">Save</Button>
                         <br />
                     </>
                 </Col><Col>
@@ -124,6 +129,7 @@ export default function Meals() {
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
+                        <Button variant="success" href="#meals">Save</Button>
                         <br />
                     </>
                 </Col>

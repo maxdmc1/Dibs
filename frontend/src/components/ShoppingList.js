@@ -2,6 +2,7 @@ import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 
 
 function ShoppingList() {
@@ -20,6 +21,7 @@ function ShoppingList() {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
+                        <Button variant="outline-secondary" href="#list">Save</Button>
                     </>
                 </Col>
                 <Col>
@@ -34,6 +36,7 @@ function ShoppingList() {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
+                        <Button variant="outline-secondary" href="#list">Save</Button>
                     </>
                 </Col>
                 <Col>
@@ -48,6 +51,7 @@ function ShoppingList() {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
+                        <Button variant="outline-secondary" href="#list">Save</Button>
                     </>
                 </Col>
                 
