@@ -21,7 +21,9 @@ export default function Meals() {
 
                                 <Card.Title>Day 1</Card.Title>
                                 <Card.Text>
-Create your meal plan for the day
+                                    <p>B:</p>
+                                    <p>L:</p>
+                                    <p>D:</p>
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -38,7 +40,9 @@ Create your meal plan for the day
 
                                 <Card.Title>Day 2</Card.Title>
                                 <Card.Text>
-Create your meal plan for the day
+<p>B:</p>
+                                    <p>L:</p>
+                                    <p>D:</p>
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -54,7 +58,9 @@ Create your meal plan for the day
 
                                 <Card.Title>Day 3</Card.Title>
                                 <Card.Text>
-Create your meal plan for the day
+<p>B:</p>
+                                    <p>L:</p>
+                                    <p>D:</p>
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -75,7 +81,9 @@ Create your meal plan for the day
 
                                 <Card.Title>Day 4</Card.Title>
                                 <Card.Text>
-Create your meal plan for the day
+<p>B:</p>
+                                    <p>L:</p>
+                                    <p>D:</p>
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -92,7 +100,9 @@ Create your meal plan for the day
 
                                 <Card.Title>Day 5</Card.Title>
                                 <Card.Text>
-Create your meal plan for the day
+<p>B:</p>
+                                    <p>L:</p>
+                                    <p>D:</p>
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
@@ -108,7 +118,9 @@ Create your meal plan for the day
 
                                 <Card.Title>Day 6</Card.Title>
                                 <Card.Text>
-Create your meal plan for the day
+<p>B:</p>
+                                    <p>L:</p>
+                                    <p>D:</p>
                                 </Card.Text>
                             </Card.ImgOverlay>
                         </Card>
