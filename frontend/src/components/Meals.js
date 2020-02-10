@@ -4,7 +4,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import MealsImage from '../images/meals.jpg';
-
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 
 export default function Meals() {
@@ -20,13 +22,21 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 1</Card.Title>
-                                <Card.Text>
-                                    <p>B:</p>
-                                    <p>L:</p>
-                                    <p>D:</p>
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter meal"
+                                        aria-label="Meal Input1"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="success">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
+                               
+                                
                             </Card.ImgOverlay>
                         </Card>
+                        
                         <br />
                     </>
                 </Col>
@@ -39,11 +49,18 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 2</Card.Title>
-                                <Card.Text>
-<p>B:</p>
-                                    <p>L:</p>
-                                    <p>D:</p>
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter meal"
+                                        aria-label="Meal Input2"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="success">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
+
+
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -57,11 +74,18 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 3</Card.Title>
-                                <Card.Text>
-<p>B:</p>
-                                    <p>L:</p>
-                                    <p>D:</p>
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter meal"
+                                        aria-label="Meal Input3"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="success">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
+
+
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -80,11 +104,18 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 4</Card.Title>
-                                <Card.Text>
-<p>B:</p>
-                                    <p>L:</p>
-                                    <p>D:</p>
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter meal"
+                                        aria-label="Meal Input4"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="success">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
+
+
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -99,11 +130,18 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 5</Card.Title>
-                                <Card.Text>
-<p>B:</p>
-                                    <p>L:</p>
-                                    <p>D:</p>
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter meal"
+                                        aria-label="Meal Input5"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="success">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
+
+
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -117,11 +155,18 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 6</Card.Title>
-                                <Card.Text>
-<p>B:</p>
-                                    <p>L:</p>
-                                    <p>D:</p>
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter meal"
+                                        aria-label="Meal Input6"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="success">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
+
+
                             </Card.ImgOverlay>
                         </Card>
                         <br />

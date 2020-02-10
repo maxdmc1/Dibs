@@ -2,6 +2,9 @@ import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 
 function ShoppingList() {
@@ -14,12 +17,23 @@ function ShoppingList() {
                             <Card.Header>Family 1</Card.Header>
                             <Card.Body>
                                 <Card.Title>Shopping List</Card.Title>
+                                
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Enter Item"
+                                            aria-label="Shopping item input"
+                                            aria-describedby="basic-addon2"
+                                        />
+                                        <InputGroup.Append>
+                                            <Button variant="outline-secondary">Save</Button>
+                                        </InputGroup.Append>
+                                    </InputGroup>
                                 </Card.Text>
+                                
                             </Card.Body>
                         </Card>
+                        
                     </>
                 </Col>
                 <Col>
@@ -28,10 +42,20 @@ function ShoppingList() {
                             <Card.Header>Family 2</Card.Header>
                             <Card.Body>
                                 <Card.Title>Shopping List</Card.Title>
+
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Enter Item"
+                                            aria-label="Shopping item input"
+                                            aria-describedby="basic-addon2"
+                                        />
+                                        <InputGroup.Append>
+                                            <Button variant="outline-secondary">Save</Button>
+                                        </InputGroup.Append>
+                                    </InputGroup>
                                 </Card.Text>
+
                             </Card.Body>
                         </Card>
                     </>
@@ -42,10 +66,20 @@ function ShoppingList() {
                             <Card.Header>Family 3</Card.Header>
                             <Card.Body>
                                 <Card.Title>Shopping List</Card.Title>
+
                                 <Card.Text>
-                                    Some quick example text to build on the card title and make up the bulk
-                                    of the card's content.
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                            placeholder="Enter Item"
+                                            aria-label="Shopping item input"
+                                            aria-describedby="basic-addon2"
+                                        />
+                                        <InputGroup.Append>
+                                            <Button variant="outline-secondary">Save</Button>
+                                        </InputGroup.Append>
+                                    </InputGroup>
                                 </Card.Text>
+
                             </Card.Body>
                         </Card>
                     </>

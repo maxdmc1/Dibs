@@ -4,13 +4,20 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import RoomsImage from '../images/beds.png';
-
+import Button from 'react-bootstrap/Button';
+import RoomsHeader from '../images/Rooms.gif';
+import Image from 'react-bootstrap/Image';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 
 export default function Meals() {
     return (
         <Container >
             <Row>
+                <Container id="rooms">
+                    <Image src={RoomsHeader}/>
+                </Container>
                 <Col>
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
@@ -20,11 +27,19 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Room 1</Card.Title>
-                                <Card.Text>
-                                    Call Dibbs! on this room
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Call Dibbs!"
+                                        aria-label="Dibbs 1"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="danger">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
+                        
                         <br />
                     </>
                 </Col>
@@ -37,9 +52,16 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Room 2</Card.Title>
-                                <Card.Text>
-                                    Call Dibbs! on this room
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Call Dibbs!"
+                                        aria-label="Dibbs 2"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="danger">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -53,9 +75,16 @@ export default function Meals() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Room 3</Card.Title>
-                                <Card.Text>
-                                    Call Dibbs! on this room
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Call Dibbs!"
+                                        aria-label="Dibbs 3"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="danger">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -63,59 +92,7 @@ export default function Meals() {
                 </Col>
 
 
-            </Row>
-            <Row>
-                <Col>
-                    <>
-                        <Card text="white" style={{ width: '18rem' }}>
-
-                            <Card.Img src={RoomsImage} />
-
-                            <Card.ImgOverlay>
-
-                                <Card.Title>Room 4</Card.Title>
-                                <Card.Text>
-                                    Call Dibbs! on this room
-                                </Card.Text>
-                            </Card.ImgOverlay>
-                        </Card>
-                        <br />
-                    </>
-                </Col>
-                <Col>
-                    <>
-                        <Card text="white" style={{ width: '18rem' }}>
-
-                            <Card.Img src={RoomsImage} />
-
-                            <Card.ImgOverlay>
-
-                                <Card.Title>Room 5</Card.Title>
-                                <Card.Text>
-                                    Call Dibbs! on this room
-                                </Card.Text>
-                            </Card.ImgOverlay>
-                        </Card>
-                        <br />
-                    </>
-                </Col><Col>
-                    <>
-                        <Card text="white" style={{ width: '18rem' }}>
-
-                            <Card.Img src={RoomsImage} />
-
-                            <Card.ImgOverlay>
-
-                                <Card.Title>Room 6</Card.Title>
-                                <Card.Text>
-                                    Call Dibbs! on this room
-                                </Card.Text>
-                            </Card.ImgOverlay>
-                        </Card>
-                        <br />
-                    </>
-                </Col>
-
+           
 
             </Row>
 

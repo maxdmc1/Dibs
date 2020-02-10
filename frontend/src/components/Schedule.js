@@ -4,8 +4,9 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Card from 'react-bootstrap/Card'
 import ScheduleImage from '../images/schedule.jpg';
-
-
+import Button from 'react-bootstrap/Button';
+import FormControl from 'react-bootstrap/FormControl';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export default function Schedule() {
     return (
@@ -20,11 +21,19 @@ export default function Schedule() {
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 1</Card.Title>
-                                <Card.Text>
-Add your daily schedule of activities
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter Actvity"
+                                        aria-label="Avtivity Input1"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="primary">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
+                        
                         <br />
                     </>
                 </Col>
@@ -37,9 +46,16 @@ Add your daily schedule of activities
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 2</Card.Title>
-                                <Card.Text>
-Add your daily schedule of activities
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter Actvity"
+                                        aria-label="Avtivity Input2"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="primary">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -53,9 +69,16 @@ Add your daily schedule of activities
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 3</Card.Title>
-                                <Card.Text>
-Add your daily schedule of activities
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter Actvity"
+                                        aria-label="Avtivity Input3"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="primary">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -74,9 +97,16 @@ Add your daily schedule of activities
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 4</Card.Title>
-                                <Card.Text>
-Add your daily schedule of activities
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter Actvity"
+                                        aria-label="Avtivity Input4"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="primary">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -91,9 +121,16 @@ Add your daily schedule of activities
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 5</Card.Title>
-                                <Card.Text>
-Add your daily schedule of activities
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter Actvity"
+                                        aria-label="Avtivity Input5"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="primary">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
                         <br />
@@ -107,9 +144,16 @@ Add your daily schedule of activities
                             <Card.ImgOverlay>
 
                                 <Card.Title>Day 6</Card.Title>
-                                <Card.Text>
-Add your daily schedule of activities
-                                </Card.Text>
+                                <InputGroup className="mb-3">
+                                    <FormControl
+                                        placeholder="Enter Actvity"
+                                        aria-label="Avtivity Input6"
+                                        aria-describedby="basic-addon2"
+                                    />
+                                    <InputGroup.Append>
+                                        <Button variant="primary">Save</Button>
+                                    </InputGroup.Append>
+                                </InputGroup>
                             </Card.ImgOverlay>
                         </Card>
                         <br />
