@@ -9,7 +9,7 @@ import Meals from './components/Meals.js';
 import Rooms from './components/Rooms';
 import ScheduleHeader from './components/ScheduleHeader';
 import MealsHeader from './components/MealsHeader';
-import BedroomsHeader from './components/BedroomsHeader';
+
 import LogoHeader from './components/LogoHeader';
 
 import ShoppingHeader from './components/ShoppingHeader';
@@ -40,7 +40,7 @@ export default function App() {
       <MealsHeader />
       <Meals />
       <Navbar />
-      <BedroomsHeader />
+      
       <Rooms />
      
     </div>
