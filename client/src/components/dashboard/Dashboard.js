@@ -13,9 +13,14 @@ export default function Dashboard({ history }) {
     my: [],
     open: []
   });
+  const [TripName, setTripName] = useState("");
+  const [numBedrooms, setNumBedrooms] = useState(0);
+  const [firstDay, setFirstDay] = useState("2020-02-12");
+  const [lastDay, setLastDay] = useState("2020-02-13");
+
   useEffect(() => {
     setTimeout(() => {
-      fetch(`/api/v1/games/my-games/${user.id}`)
+      fetch(`/api/trips/my-trips/${user.id}`)
         .then(res => res.json())
         .then(res1 => {
           fetch(`/api/v1/games/open-games`)
@@ -29,7 +34,7 @@ export default function Dashboard({ history }) {
               });
             });
         });
-    }, 1000);
+    }, 10000);
   }, []);
 
   console.log("wwwtttfff");
@@ -65,16 +70,50 @@ export default function Dashboard({ history }) {
       </div>
       <Box align="center" justify="center">
         <Box align="center" justify="center">
+          <input
+            value={TripName}
+            type="text"
+            name="TripName"
+            onChange={({ target }) => setTripName(target.value)}
+            placeholder="Trip Name"
+            required
+          ></input>
+          <input
+            value={numBedrooms}
+            type="text"
+            name="numBedrooms"
+            onChange={({ target }) => setNumBedrooms(target.value)}
+            placeholder="Number of Bedrooms"
+          ></input>
+          <input
+            value={firstDay}
+            type="text"
+            name="firstDay"
+            onChange={({ target }) => setFirstDay(target.value)}
+            placeholder="First Day of Trip (YYYY-MM-DD)"
+            required
+          ></input>
+          <input
+            value={lastDay}
+            type="text"
+            name="lastDay"
+            onChange={({ target }) => setLastDay(target.value)}
+            placeholder="Last Day of Trip (YYYY-MM-DD)"
+            required
+          ></input>
           <Button
             onClick={e => {
               e.preventDefault();
               console.log("user", user, {
                 x: user.id
               });
-              fetch("/api/v1/games", {
+              fetch("/api/trips", {
                 method: "POST",
                 body: JSON.stringify({
-                  x: user.id
+                  TripName: TripName,
+                  numBedrooms: numBedrooms,
+                  firstDay: firstDay,
+                  lastDay: lastDay
                 }),
                 headers: {
                   "Content-Type": "application/json"

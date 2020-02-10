@@ -39,6 +39,7 @@ module.exports = function(sequelize, DataTypes) {
     Trips.hasOne(models.Notes, {
       onDelete: "cascade"
     });
+    // Trips.hasMany(models.tripUsers);
   };
   return Trips;
 };
