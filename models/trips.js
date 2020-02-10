@@ -6,23 +6,22 @@ module.exports = function(sequelize, DataTypes) {
     TripName: { type: DataTypes.STRING, allowNull: false },
     numBedrooms: DataTypes.INTEGER,
     firstDay: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATEONLY,
       allowNull: false
     } /*DATEONLY (for later)*/,
     lastDay: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATEONLY,
       allowNull: false
-    } /*DATEONLY (for later)*/,
-    userList: {
-      type: DataTypes.STRING,
-
-      get: function() {
-        return JSON.parse(this.getDataValue("userList"));
-      },
-      set: function(val) {
-        return this.setDataValue("userList", JSON.stringify(val));
-      }
-    }
+    } /*DATEONLY (for later)*/
+    // userList: {
+    //   type: DataTypes.STRING
+    // get: function() {
+    //   return JSON.parse(this.getDataValue("userList"));
+    // },
+    // set: function(val) {
+    //   return this.setDataValue("userList", JSON.stringify(val));
+    // }
+    // }
   });
 
   Trips.associate = function(models) {
@@ -31,13 +30,13 @@ module.exports = function(sequelize, DataTypes) {
     Trips.hasMany(models.Bedrooms, {
       onDelete: "cascade"
     });
-    Trips.hasMany(models.Groceries, {
+    Trips.hasOne(models.Groceries, {
       onDelete: "cascade"
     });
     Trips.hasMany(models.Schedule, {
       onDelete: "cascade"
     });
-    Trips.hasMany(models.Notes, {
+    Trips.hasOne(models.Notes, {
       onDelete: "cascade"
     });
   };

@@ -42,24 +42,36 @@ module.exports = {
 
     // PUT route for updating a bedroom
 
+    // app.put("/api/bedrooms/:id", function(req, res) {
+    //   console.log(req.params.id);
+    //   db.Bedrooms.update(
+    //     { reserved: true },
+    //     { where: { id: req.params.id } }
+    //   ).then(function(Bedrooms) {
+    //     res.json(Bedrooms);
+    //   });
+    // });
+
     app.put("/api/bedrooms/:id", function(req, res) {
-      console.log(req.params.id);
-      db.Bedrooms.update(
-        { reserved: true },
-        { where: { id: req.params.id } }
-      ).then(function(Bedrooms) {
-        res.json(Bedrooms);
-      });
+      db.Bedrooms.findOne(
+        { where: { id: req.params.id } }.then(updatedBedroom => {
+          updatedBedroom.update({
+            reserved: true,
+            name: req.body
+          });
+        })
+      );
     });
 
+    // Get Route for retrieving grocery list - works
     app.get("/api/groceries", function(req, res) {
-      db.groceries.findAll({}).then(function(groceries) {
+      db.Groceries.findAll({}).then(function(groceries) {
         res.json(groceries);
         console.log(groceries);
       });
     });
 
-    // POST route for saving a new post
+    // POST route for saving a new grocery list - works
     app.post("/api/groceries", function(req, res) {
       // get the data
       console.log(req.body);
@@ -73,19 +85,18 @@ module.exports = {
       });
     });
 
-    // PUT route for updating a bedroom
-
+    // PUT route for updating a grocery list - sends the updated array to the db - works
     app.put("/api/groceries/:id", function(req, res) {
       console.log(req.params.id);
-      db.groceries
-        .update({
-          where: { id: req.params.id }
-        })
-        .then(function(groceries) {
-          res.json(groceries);
-        });
+      console.log(req.body);
+      db.Groceries.update(req.body, { where: { id: req.params.id } }).then(
+        function(Groceries) {
+          console.log(Groceries);
+          res.json(Groceries);
+        }
+      );
     });
-    // Post Route for a new Trip
+    // Post Route for a new Trip - All Trip Routes work
 
     app.get("/api/trips", function(req, res) {
       db.Trips.findAll({}).then(function(Trips) {
@@ -101,51 +112,28 @@ module.exports = {
       });
     });
 
-    // PUT route for updating a bedroom
+    // PUT route for updating a trip
 
     app.put("/api/trips/:id", function(req, res) {
       console.log(req.params.id);
-      db.Trips.update({
-        where: { id: req.params.id }
-      }).then(function(Trips) {
+      console.log(req.body);
+      db.Trips.update(req.body, { where: { id: req.params.id } }).then(function(
+        Trips
+      ) {
+        console.log(Trips);
         res.json(Trips);
       });
     });
 
-    // Routes for notes
-    // Post a note
-    app.post("/api/notes", function(req, res) {
-      console.log(req.body);
-      db.Notes.create(req.body).then(function(Notes) {
-        res.json(Notes);
-      });
-    });
-    // Get a note
-    app.get("/api/notes/:id", function(req, res) {
-      console.log({ id: req.params.id });
-      db.Notes.findAll({ where: { id: req.params.id } }).then(function(Notes) {
-        console.log(Notes);
-        res.json(Notes[0]);
-      });
-    });
-    // Update a note
-    app.put("/api/notes/:id", function(req, res) {
-      console.log(req.params.id);
-      db.Notes.update({
-        where: { id: req.params.id }
-      }).then(function(Notes) {
-        res.json(Notes);
-      });
-    });
     // Routes for Schedule
-    // Post a schedule
+    // Post a schedule - Post works
     app.post("/api/schedule", function(req, res) {
       console.log(req.body);
       db.Schedule.create(req.body).then(function(Schedule) {
         res.json(Schedule);
       });
     });
-    // Get a schedule
+    // Get a schedule - needs work
     app.get("/api/schedule/:id", function(req, res) {
       console.log({ id: req.params.id });
       db.Notes.findAll({ where: { id: req.params.id } }).then(function(
@@ -155,7 +143,7 @@ module.exports = {
         res.json(Schedule[0]);
       });
     });
-    // Get all schedules associated with a Trip
+    // Get all schedules associated with a Trip - needs work
     app.get("/api/schedules/:id", function(req, res) {
       console.log({ id: req.params.id });
       db.Notes.findAll({ where: { TripId: req.params.id } }).then(function(
@@ -165,13 +153,51 @@ module.exports = {
         res.json(Schedule[0]);
       });
     });
-    // Update a schedule
+    // Update a schedule - works
+
     app.put("/api/schedule/:id", function(req, res) {
       console.log(req.params.id);
-      db.Schedule.update({
-        where: { id: req.params.id }
-      }).then(function(Schedule) {
-        res.json(Schedule);
+      console.log(req.body);
+      db.Schedule.update(req.body, { where: { id: req.params.id } }).then(
+        function(Schedule) {
+          console.log(Schedule);
+          res.json(Schedule);
+        }
+      );
+    });
+
+    // Create Update Destroy routes for tripUsers
+    // Get
+    app.get("/api/tripUsers", function(req, res) {
+      db.Trips.findAll({}).then(function(Trips) {
+        res.json(Trips);
+        console.log(Trips);
+      });
+    });
+    // Create
+    app.post("/api/tripUsers", function(req, res) {
+      console.log(req.body);
+      db.TripUsers.create(req.body).then(function(TripUsers) {
+        res.json(TripUsers);
+      });
+    });
+
+    // Update route for updating a tripUser
+    app.put("/api/tripUsers/:id", function(req, res) {
+      console.log(req.params.id);
+      console.log(req.body);
+      db.TripUsers.update(req.body, { where: { id: req.params.id } }).then(
+        function(TripUsers) {
+          console.log(TripUsers);
+          res.json(TripUsers);
+        }
+      );
+    });
+    // Delete
+    app.delete("/api/tripUsers", function(req, res) {
+      console.log(req.body);
+      db.TripUsers.destroy(req.body).then(function(TripUsers) {
+        res.json(TripUsers);
       });
     });
   }
