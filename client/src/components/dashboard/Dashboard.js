@@ -9,10 +9,7 @@ import { AuthContext } from "../../auth/auth";
 export default function Dashboard({ history }) {
   const { user, logoutUser } = useContext(AuthContext);
 
-  const [games, setGames] = useState({
-    my: [],
-    open: []
-  });
+  const [trips, setTrips] = useState([]);
   const [TripName, setTripName] = useState("");
   const [numBedrooms, setNumBedrooms] = useState(0);
   const [firstDay, setFirstDay] = useState("2020-02-12");
@@ -22,17 +19,9 @@ export default function Dashboard({ history }) {
     setTimeout(() => {
       fetch(`/api/trips/my-trips/${user.id}`)
         .then(res => res.json())
-        .then(res1 => {
-          fetch(`/api/v1/games/open-games`)
-            .then(res => res.json())
-            .then(res2 => {
-              console.log(res1);
-              console.log(res2);
-              setGames({
-                my: res1.games,
-                open: res2.games
-              });
-            });
+        .then(res => {
+          console.log(res);
+          setTrips(res.trips);
         });
     }, 10000);
   }, []);
@@ -126,35 +115,25 @@ export default function Dashboard({ history }) {
           />
         </Box>
         <div>
-          <h1>MY GAMES</h1>
+          <h1>MY Trips</h1>
           <div>
-            {games.my.map(game => (
+            {trips.map(trip => (
               <div>
-                <Link to={`/games/${game._id}`}>
-                  {game._id} => {game.game}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <h1>OPEN GAMES</h1>
-          <div>
-            {games.open.map(game => (
-              <div>
-                <span to={`/games/${game._id}`}>
-                  {game._id} => {game.game}
+                <span to={`/trips/${trip._id}`}>
+                  {trip._id} => {trip.trip}
                 </span>
                 <Button
                   onClick={() => {
                     axios({
-                      url: `/api/v1/games/join/${game._id}`,
+                      url: `/api/trips/join/${trip._id}`,
                       method: "PUT",
                       data: {
-                        ...game,
+                        ...trip,
                         o: user.id
                       }
                     }).then(res => {
                       console.log(res);
-                      history.push(`/games/${game._id}`);
+                      history.push(`/trips/${trip._id}`);
                     });
                   }}
                   label="JOIN"
