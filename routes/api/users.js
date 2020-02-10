@@ -69,15 +69,18 @@ router.post("/login", (req, res) => {
   //UPDATE DB, DELETE TABLE AND START OVER
 
   // Find user by email
-  db.users.findAll({
+  db.Users.findAll({
   where: {
     email: email
   }
-}).then(user => {
+}).then(users => {
+  const user = users[0]
     // Check if user exists
     if (!user) {
       return res.status(404).json({ emailnotfound: "Email not found" });
-    }
+    } 
+    console.log(user);
+    console.log(password, user.password);
 
     // Check password
     bcrypt.compare(password, user.password).then(isMatch => {
@@ -108,8 +111,8 @@ router.post("/login", (req, res) => {
           .status(400)
           .json({ passwordincorrect: "Password incorrect" });
       }
-    });
-  });
+    }).catch(e => console.log(e));
+  }).catch(e => console.log(e));
 });
 
 module.exports = router;
