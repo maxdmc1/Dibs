@@ -19,7 +19,7 @@ function ShoppingList() {
                 
            
    
-            <Row >
+            <Row id="list">
                 <Col>
                 <Image src={ShoppingImage} />
                 </Col>
@@ -35,7 +35,7 @@ function ShoppingList() {
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Enter Item"
-                                            aria-label="Shopping item input"
+                                            aria-label="Shopping item input1"
                                             aria-describedby="basic-addon2"
                                         />
                                         <InputGroup.Append>
@@ -60,7 +60,7 @@ function ShoppingList() {
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Enter Item"
-                                            aria-label="Shopping item input"
+                                            aria-label="Shopping item input2"
                                             aria-describedby="basic-addon2"
                                         />
                                         <InputGroup.Append>
@@ -84,7 +84,7 @@ function ShoppingList() {
                                     <InputGroup className="mb-3">
                                         <FormControl
                                             placeholder="Enter Item"
-                                            aria-label="Shopping item input"
+                                            aria-label="Shopping item input3"
                                             aria-describedby="basic-addon2"
                                         />
                                         <InputGroup.Append>
