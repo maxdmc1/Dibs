@@ -13,11 +13,10 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 export default function Meals() {
     return (
-        <Container >
+        <Container id="rooms">
+            <Image src={RoomsHeader} />
             <Row>
-                <Container id="rooms">
-                    <Image src={RoomsHeader}/>
-                </Container>
+                
                 <Col>
                     <>
                         <Card text="white" style={{ width: '18rem' }}>
@@ -29,8 +28,8 @@ export default function Meals() {
                                 <Card.Title>Room 1</Card.Title>
                                 <InputGroup className="mb-3">
                                     <FormControl
-                                        placeholder="Call Dibbs!"
-                                        aria-label="Dibbs 1"
+                                        placeholder="Call Dibs!"
+                                        aria-label="Dibs 1"
                                         aria-describedby="basic-addon2"
                                     />
                                     <InputGroup.Append>
@@ -54,8 +53,8 @@ export default function Meals() {
                                 <Card.Title>Room 2</Card.Title>
                                 <InputGroup className="mb-3">
                                     <FormControl
-                                        placeholder="Call Dibbs!"
-                                        aria-label="Dibbs 2"
+                                        placeholder="Call Dibs!"
+                                        aria-label="Dibs 2"
                                         aria-describedby="basic-addon2"
                                     />
                                     <InputGroup.Append>
@@ -77,8 +76,8 @@ export default function Meals() {
                                 <Card.Title>Room 3</Card.Title>
                                 <InputGroup className="mb-3">
                                     <FormControl
-                                        placeholder="Call Dibbs!"
-                                        aria-label="Dibbs 3"
+                                        placeholder="Call Dibs!"
+                                        aria-label="Dibs 3"
                                         aria-describedby="basic-addon2"
                                     />
                                     <InputGroup.Append>
