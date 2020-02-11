@@ -1,6 +1,8 @@
 //Worked with Michell on these routes
 
 const db = require("../../models");
+const sequelize = require("sequelize");
+const { QueryTypes } = require("sequelize");
 
 const arrayHelpers = {
   get: function() {
@@ -97,7 +99,6 @@ module.exports = {
       );
     });
     // Post Route for a new Trip - All Trip Routes work
-
     app.get("/api/trips", function(req, res) {
       db.Trips.findAll({}).then(function(Trips) {
         res.json(Trips);
@@ -105,9 +106,37 @@ module.exports = {
       });
     });
 
-    app.post("/api/trips", function(req, res) {
+    app.get("/api/trips/:userId", async function(req, res) {
+      try {
+        const userTrips = await db.sequelize.query(
+          `SELECT * FROM dibs_db.Trips`,
+          //   `SELECT TripName, firstDay FROM dibs_db.TripUsers AS TU
+          // JOIN dibs_db.Trips AS T
+          // ON TU.TripId = T.id
+          // WHERE TU.UserId = 1 `,
+          { type: QueryTypes.SELECT }
+        );
+        console.log(userTrips);
+        res.json(userTrips);
+      } catch (err) {
+        console.log(err);
+      }
+      // db.Trips.findAll({}).then(function(Trips) {
+      //   res.json(Trips);
+      //   console.log(Trips);
+      // });
+    });
+
+    app.post("/api/trips/:userId", function(req, res) {
       console.log(req.body.Trips);
+      console.log("HelloThere   ", req.params);
       db.Trips.create(req.body).then(function(Trips) {
+        db.TripUsers.create({
+          UserId: req.params.userId,
+          TripId: Trips.id
+        }).then(function(TripsUser) {
+          res.json(TripsUser);
+        });
         res.json(Trips);
       });
     });
@@ -200,5 +229,8 @@ module.exports = {
         res.json(TripUsers);
       });
     });
+
+    // Create route for my-trips
+    app.get("/api/trips/my-trips/:id", function(req, res) {});
   }
 };
