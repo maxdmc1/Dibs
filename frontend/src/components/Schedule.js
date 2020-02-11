@@ -7,10 +7,13 @@ import ScheduleImage from '../images/schedule.jpg';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Image from 'react-bootstrap/Image'
+import ActivityImage from '../images/Activity.gif'
 
 export default function Schedule() {
     return (
-        <Container >
+        <Container id="schedule">
+            <Image src={ActivityImage} fluid />
             <Row>
                 <Col>
                     <>

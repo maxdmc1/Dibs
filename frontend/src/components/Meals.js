@@ -7,11 +7,14 @@ import MealsImage from '../images/meals.jpg';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
+import MealsHeader from '../images/meals.gif'
+import Image from 'react-bootstrap/Image';
 
 
 export default function Meals() {
     return (
-        <Container >
+        <Container id="meals">
+            <Image src={MealsHeader} />
             <Row>
                 <Col>
                     <>

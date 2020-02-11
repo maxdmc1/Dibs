@@ -6,11 +6,24 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 
+import Image from 'react-bootstrap/Image'
+import ShoppingImage from '../images/shop.gif'
+import Container from 'react-bootstrap/Container'
 
 function ShoppingList() {
     return (
-        <div className="container">
-            <Row>
+        <Container id="list">
+            
+        
+            
+                
+           
+   
+            <Row >
+                <Col>
+                <Image src={ShoppingImage} />
+                </Col>
+                
                 <Col>
                     <>
                         <Card border="secondary" style={{ width: '18rem' }}>
@@ -87,7 +100,7 @@ function ShoppingList() {
                 
             </Row>
             
-        </div>
+        </Container>
     );
 }
 
