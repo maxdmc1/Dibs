@@ -9,25 +9,20 @@ import { AuthContext } from "../../auth/auth";
 export default function Dashboard({ history }) {
   const { user, logoutUser } = useContext(AuthContext);
 
-  const [games, setGames] = useState({
-    my: [],
-    open: []
-  });
+  const [trips, setTrips] = useState([]);
+  const [TripName, setTripName] = useState("");
+  const [numBedrooms, setNumBedrooms] = useState(0);
+  const [firstDay, setFirstDay] = useState("2020-02-12");
+  const [lastDay, setLastDay] = useState("2020-02-13");
+
   useEffect(() => {
+    console.log(" Data loaded for the dashboard");
     setTimeout(() => {
-      fetch(`/api/v1/games/my-games/${user.id}`)
+      fetch(`/api/trips/${user.id}`)
         .then(res => res.json())
-        .then(res1 => {
-          fetch(`/api/v1/games/open-games`)
-            .then(res => res.json())
-            .then(res2 => {
-              console.log(res1);
-              console.log(res2);
-              setGames({
-                my: res1.games,
-                open: res2.games
-              });
-            });
+        .then(res => {
+          console.log("XXXX: ", res);
+          setTrips(res);
         });
     }, 1000);
   }, []);
@@ -65,16 +60,50 @@ export default function Dashboard({ history }) {
       </div>
       <Box align="center" justify="center">
         <Box align="center" justify="center">
+          <input
+            value={TripName}
+            type="text"
+            name="TripName"
+            onChange={({ target }) => setTripName(target.value)}
+            placeholder="Trip Name"
+            required
+          ></input>
+          <input
+            value={numBedrooms}
+            type="text"
+            name="numBedrooms"
+            onChange={({ target }) => setNumBedrooms(target.value)}
+            placeholder="Number of Bedrooms"
+          ></input>
+          <input
+            value={firstDay}
+            type="text"
+            name="firstDay"
+            onChange={({ target }) => setFirstDay(target.value)}
+            placeholder="First Day of Trip (YYYY-MM-DD)"
+            required
+          ></input>
+          <input
+            value={lastDay}
+            type="text"
+            name="lastDay"
+            onChange={({ target }) => setLastDay(target.value)}
+            placeholder="Last Day of Trip (YYYY-MM-DD)"
+            required
+          ></input>
           <Button
             onClick={e => {
               e.preventDefault();
               console.log("user", user, {
                 x: user.id
               });
-              fetch("/api/v1/games", {
+              fetch(`/api/trips/${user.id}`, {
                 method: "POST",
                 body: JSON.stringify({
-                  x: user.id
+                  TripName: TripName,
+                  numBedrooms: numBedrooms,
+                  firstDay: firstDay,
+                  lastDay: lastDay
                 }),
                 headers: {
                   "Content-Type": "application/json"
@@ -83,43 +112,26 @@ export default function Dashboard({ history }) {
                 .then(res => res.json())
                 .then(res => console.log(res));
             }}
-            label="Start Game"
+            label="Create Trip"
           />
         </Box>
         <div>
-          <h1>MY GAMES</h1>
+          <h1>MY Trips</h1>
           <div>
-            {games.my.map(game => (
+            {trips.map(trip => (
               <div>
-                <Link to={`/games/${game._id}`}>
-                  {game._id} => {game.game}
-                </Link>
-              </div>
-            ))}
-          </div>
-          <h1>OPEN GAMES</h1>
-          <div>
-            {games.open.map(game => (
-              <div>
-                <span to={`/games/${game._id}`}>
-                  {game._id} => {game.game}
-                </span>
-                <Button
+                <button
                   onClick={() => {
-                    axios({
-                      url: `/api/v1/games/join/${game._id}`,
-                      method: "PUT",
-                      data: {
-                        ...game,
-                        o: user.id
-                      }
-                    }).then(res => {
-                      console.log(res);
-                      history.push(`/games/${game._id}`);
+                    console.log("trip = ", trip);
+                    axios.get(`/api/trips/trip/${trip.tripId}`).then(res => {
+                      console.log(res.data);
+                      // history.push(`api/trips/$trip.id`);
                     });
                   }}
-                  label="JOIN"
-                />
+                  label="GoToTrip"
+                >
+                  {trip.TripName}, {trip.firstDay}
+                </button>
               </div>
             ))}
           </div>

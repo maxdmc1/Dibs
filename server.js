@@ -6,8 +6,10 @@ const express = require("express"),
   passport = require("passport"),
   session = require("express-session"),
   db = require("./models/index"),
+  users = require("./routes/api/users"),
   app = express(),
   PORT = process.env.PORT || 3033;
+  
 
 // Middleware
 app.use(express.static("public"));
@@ -17,15 +19,23 @@ app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
 // For Passport
-app.use(
-  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
-); // session secret
+// app.use(
+//   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+// ); // session secret
+// app.use(passport.initialize());
+// app.use(passport.session()); // persistent login sessions
+
+// Passport middleware
 app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
+
+// Passport config
+require("./config/passport")(passport);
 
 // Routes
 const API = require("./routes/api/api-routes");
 API.api(app);
+
+app.use("/api/v1/user", users);
 
 // Commented out auth for now - this may get taken care of on front end
 // const authAPI = require("./routes/api/auth");
