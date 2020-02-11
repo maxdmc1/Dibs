@@ -25,7 +25,7 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  db.Users.findOne({ email: req.body.email }).then(user => {
+  db.Users.findOne({ where: { email: req.body.email } }).then(user => {
     console.log(req.body.email);
     console.log(user);
     if (user) {

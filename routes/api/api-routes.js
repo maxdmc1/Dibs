@@ -154,6 +154,14 @@ module.exports = {
       });
     });
 
+    // Delete Route
+    app.delete("/api/trips/:id", function(req, res) {
+      console.log(db.Trips.id);
+      db.Trips.destroy({ where: { id: req.params.id } }).then(function(Trips) {
+        res.json(Trips);
+      });
+    });
+
     // Routes for Schedule
     // Post a schedule - Post works
     app.post("/api/schedule", function(req, res) {
