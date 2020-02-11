@@ -117,11 +117,11 @@ export default function Dashboard({ history }) {
         </Box>
         <div>
           <h1>MY Trips</h1>
-          <div>
+          {/* <div>
             {trips.map(trip => (
               <div>
-                <span to={`/trips/${trip._id}`}>
-                  {trip._id} => {trip.trip}
+                <span to={`/trips/${user.id}`}>
+                  {user.id} => {trip.trip}
                 </span>
                 <Button
                   onClick={() => {
@@ -134,14 +134,14 @@ export default function Dashboard({ history }) {
                       }
                     }).then(res => {
                       console.log(res);
-                      history.push(`/trips/${trip._id}`);
+                      history.push(`/trips/${trip.id}`);
                     });
                   }}
                   label="JOIN"
                 />
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </Box>
     </>
