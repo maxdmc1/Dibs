@@ -107,13 +107,11 @@ module.exports = {
     });
 
     app.get("/api/trips/:userId", async function(req, res) {
+      const userId = req.params.userId;
       try {
         const userTrips = await db.sequelize.query(
-          `SELECT * FROM dibs_db.Trips`,
-          //   `SELECT TripName, firstDay FROM dibs_db.TripUsers AS TU
-          // JOIN dibs_db.Trips AS T
-          // ON TU.TripId = T.id
-          // WHERE TU.UserId = 1 `,
+          // `SELECT * FROM dibs_db.Trips`,
+          `SELECT TripName, firstDay FROM dibs_db.TripUsers AS TU JOIN dibs_db.Trips AS T ON TU.TripId = T.id WHERE TU.UserId = ${userId}`,
           { type: QueryTypes.SELECT }
         );
         console.log(userTrips);
