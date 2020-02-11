@@ -111,7 +111,10 @@ module.exports = {
       try {
         const userTrips = await db.sequelize.query(
           // `SELECT * FROM dibs_db.Trips`,
-          `SELECT TripName, firstDay FROM dibs_db.TripUsers AS TU JOIN dibs_db.Trips AS T ON TU.TripId = T.id WHERE TU.UserId = ${userId}`,
+          `SELECT TripName, firstDay, tripId
+          FROM dibs_db.TripUsers AS TU 
+          JOIN dibs_db.Trips AS T ON TU.TripId = T.id 
+          WHERE TU.UserId = ${userId}`,
           { type: QueryTypes.SELECT }
         );
         console.log(userTrips);
@@ -139,17 +142,42 @@ module.exports = {
       });
     });
 
-    // PUT route for updating a trip
+    // PUT route for updating a trip - this does not look like it workds, but we don't need it
 
     app.put("/api/trips/:id", function(req, res) {
       console.log(req.params.id);
       console.log(req.body);
-      db.Trips.update(req.body, { where: { id: req.params.id } }).then(function(
-        Trips
-      ) {
-        console.log(Trips);
-        res.json(Trips);
-      });
+      db.Trips.findOne(req.body, { where: { id: req.params.id } }).then(
+        function(Trips) {
+          console.log(Trips);
+          res.json(Trips);
+        }
+      );
+    });
+    // Get Route for a single trip
+    app.get("/api/trips/:id", function(req, res) {
+      console.log(req.params.id);
+      // db.Trips.findOne({ where: { id: req.params.id } }).then(dbTrip => {
+      //   console.log(dbTrip);
+      //   res.json({ message: "working on it" });
+      // });
+      res.json({ message: "working on it" });
+    });
+
+    app.get("/api/trips/trip/:tripId", async function(req, res) {
+      console.log(req.params.tripId);
+      const tripId = req.params.tripId;
+      try {
+        const currentTrip = await db.Trips.findAll({ where: { id: tripId } });
+        console.log(currentTrip);
+        res.json(currentTrip);
+      } catch (err) {
+        console.log(err);
+      }
+      // db.Trips.findAll({}).then(function(Trips) {
+      //   res.json(Trips);
+      //   console.log(Trips);
+      // });
     });
 
     // Delete Route
@@ -238,5 +266,11 @@ module.exports = {
 
     // Create route for my-trips
     app.get("/api/trips/my-trips/:id", function(req, res) {});
+
+    // test route
+    app.get("/test", (req, res) => {
+      console.log("hello from test");
+      res.json({ message: "conncted to test" });
+    });
   }
 };
