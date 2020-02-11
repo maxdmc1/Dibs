@@ -125,7 +125,7 @@ export default function Dashboard({ history }) {
                     console.log("trip = ", trip);
                     axios.get(`/api/trips/trip/${trip.tripId}`).then(res => {
                       console.log(res.data);
-                      // history.push(`api/trips/$trip.id`);
+                      history.push(`/trips/${trip.id}`);
                     });
                   }}
                   label="GoToTrip"
