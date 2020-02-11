@@ -9,7 +9,6 @@ const express = require("express"),
   users = require("./routes/api/users"),
   app = express(),
   PORT = process.env.PORT || 3033;
-  
 
 // Middleware
 app.use(express.static("public"));
@@ -30,6 +29,10 @@ app.use(passport.initialize());
 
 // Passport config
 require("./config/passport")(passport);
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Routes
 const API = require("./routes/api/api-routes");
