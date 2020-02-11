@@ -264,9 +264,6 @@ module.exports = {
       });
     });
 
-    // Create route for my-trips
-    app.get("/api/trips/my-trips/:id", function(req, res) {});
-
     // test route
     app.get("/test", (req, res) => {
       console.log("hello from test");
