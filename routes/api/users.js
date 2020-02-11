@@ -26,7 +26,8 @@ router.post("/register", (req, res) => {
   }
 
   db.Users.findOne({ email: req.body.email }).then(user => {
-    console.log("XXX: ", user);
+    console.log(req.body.email);
+    console.log(user);
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
@@ -76,7 +77,7 @@ router.post("/login", (req, res) => {
     }
   })
     .then(users => {
-      const user = users[0];
+      const user = users[0]; // this line seems to be restricting access to 1 user
       // Check if user exists
       if (!user) {
         return res.status(404).json({ emailnotfound: "Email not found" });
