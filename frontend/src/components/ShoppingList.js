@@ -1,7 +1,7 @@
 import React from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
+
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -9,6 +9,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Image from 'react-bootstrap/Image'
 import ShoppingImage from '../images/shop.gif'
 import Container from 'react-bootstrap/Container'
+
+
 
 function ShoppingList() {
     return (
@@ -23,80 +25,31 @@ function ShoppingList() {
                 <Col>
                 <Image src={ShoppingImage} />
                 </Col>
+               
+                <Col>
                 
-                <Col>
-                    <>
-                        <Card border="secondary" style={{ width: '18rem' }}>
-                            <Card.Header>Family 1</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Shopping List</Card.Title>
+                        <InputGroup className="mb-3">
+                            <InputGroup.Prepend>
+                                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                            </InputGroup.Prepend>
+                            <FormControl aria-label="Text input with checkbox" />
+                        </InputGroup>
+                    
+                        <InputGroup className="mb-3">
+                            <FormControl
+                                placeholder="Enter Item"
+                                aria-label="Shopping item input1"
+                                aria-describedby="basic-addon2"
+                            />
+                            <InputGroup.Append>
+                                <Button variant="outline-secondary">Save</Button>
+                            </InputGroup.Append>
+                        </InputGroup>
                                 
-                                <Card.Text>
-                                    <InputGroup className="mb-3">
-                                        <FormControl
-                                            placeholder="Enter Item"
-                                            aria-label="Shopping item input1"
-                                            aria-describedby="basic-addon2"
-                                        />
-                                        <InputGroup.Append>
-                                            <Button variant="outline-secondary">Save</Button>
-                                        </InputGroup.Append>
-                                    </InputGroup>
-                                </Card.Text>
-                                
-                            </Card.Body>
-                        </Card>
-                        
-                    </>
+                    
                 </Col>
-                <Col>
-                    <>
-                        <Card border="secondary" style={{ width: '18rem' }}>
-                            <Card.Header>Family 2</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Shopping List</Card.Title>
-
-                                <Card.Text>
-                                    <InputGroup className="mb-3">
-                                        <FormControl
-                                            placeholder="Enter Item"
-                                            aria-label="Shopping item input2"
-                                            aria-describedby="basic-addon2"
-                                        />
-                                        <InputGroup.Append>
-                                            <Button variant="outline-secondary">Save</Button>
-                                        </InputGroup.Append>
-                                    </InputGroup>
-                                </Card.Text>
-
-                            </Card.Body>
-                        </Card>
-                    </>
-                </Col>
-                <Col>
-                    <>
-                        <Card border="secondary" style={{ width: '18rem' }}>
-                            <Card.Header>Family 3</Card.Header>
-                            <Card.Body>
-                                <Card.Title>Shopping List</Card.Title>
-
-                                <Card.Text>
-                                    <InputGroup className="mb-3">
-                                        <FormControl
-                                            placeholder="Enter Item"
-                                            aria-label="Shopping item input3"
-                                            aria-describedby="basic-addon2"
-                                        />
-                                        <InputGroup.Append>
-                                            <Button variant="outline-secondary">Save</Button>
-                                        </InputGroup.Append>
-                                    </InputGroup>
-                                </Card.Text>
-
-                            </Card.Body>
-                        </Card>
-                    </>
-                </Col>
+                
+              
                 
             </Row>
             
