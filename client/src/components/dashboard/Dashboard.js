@@ -16,14 +16,15 @@ export default function Dashboard({ history }) {
   const [lastDay, setLastDay] = useState("2020-02-13");
 
   useEffect(() => {
+    console.log(" Data lodated for the dashboard");
     setTimeout(() => {
-      fetch(`/api/trips/my-trips/${user.id}`)
+      fetch(`/api/trips/${user.id}`)
         .then(res => res.json())
         .then(res => {
           console.log(res);
           setTrips(res.trips);
         });
-    }, 10000);
+    }, 1000);
   }, []);
 
   console.log("wwwtttfff");
@@ -96,7 +97,7 @@ export default function Dashboard({ history }) {
               console.log("user", user, {
                 x: user.id
               });
-              fetch("/api/trips", {
+              fetch(`/api/trips/${user.id}`, {
                 method: "POST",
                 body: JSON.stringify({
                   TripName: TripName,
@@ -111,7 +112,7 @@ export default function Dashboard({ history }) {
                 .then(res => res.json())
                 .then(res => console.log(res));
             }}
-            label="Start Game"
+            label="Create Trip"
           />
         </Box>
         <div>
