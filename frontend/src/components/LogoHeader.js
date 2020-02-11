@@ -1,13 +1,23 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
+
+import Navbar from 'react-bootstrap/Navbar';
+
+import LogoImage from '../images/logo.gif'
+
 import Image from 'react-bootstrap/Image'
-import LogoImage from '../images/animation.gif'
 
-
-export default function Schedule() {
+export default function LogoHeader() {
     return (
-        <Container >
-            <Image src={LogoImage} fluid />
-        </Container>
+        
+        <Navbar fixed="top"  >
+            <Image src={LogoImage} />
+
+
+
+
+
+        </Navbar>
+        
+     
     );
 }

@@ -2,21 +2,41 @@ import React from 'react';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './components/Navbar.js';
+
 import Schedule from './components/Schedule.js';
 import Meals from './components/Meals.js';
 
 import Rooms from './components/Rooms';
-import ScheduleHeader from './components/ScheduleHeader';
-import MealsHeader from './components/MealsHeader';
+import Image from './components/LogoHeader'
 
-import LogoHeader from './components/LogoHeader';
 
-import ShoppingHeader from './components/ShoppingHeader';
+import NavBar from './components/Navbar.js'
+
+
 import ShoppingList from './components/ShoppingList';
 
 
-
+function Header() {
+  return (
+    <div >
+      <Image />
+      
+      <NavBar />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      
+    
+     
+    </div>
+  )
+}
 
 
 
@@ -26,20 +46,25 @@ export default function App() {
   return (
     <div>
 
-      <LogoHeader />
-      <br />
-      <Navbar />
-
+      <Header />
       
-      <ShoppingHeader />
+   
+    
       <ShoppingList />
-      <Navbar />
-      <ScheduleHeader />
+      <br />
+      <br />
+     
+      
+     
       <Schedule />
-      <Navbar />
-      <MealsHeader />
+      <br />
+      <br />
+     
+    
       <Meals />
-      <Navbar />
+      <br />
+      <br />
+     
       
       <Rooms />
      
