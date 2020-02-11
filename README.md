@@ -1,17 +1,17 @@
-#Dibs! The React App that makes group vacations a breeze to plan!
+# Dibs! The React App that makes group vacations a breeze to plan!
 ![userinput pic](./screenshot.gif)
 
-#Motivation for Deployment
+# Motivation for Deployment
 After numerous group vacations, we found the number one headache was the planning. From reservations to schedules, there is so much stuff to keep track of and it's usally all over the place. We created an app that helps you plan your group vacation by keeping track of everything all in one place.
 
-#Features
+# Features
 -Keep track of multiple vacations
 -Shopping List
 -Activity Schedule
 -Meal Planner
 -Room Reserver
 
-#Technology Used
+# Technology Used
 Full-stack MERN app with authentication using passport and JWTs.
 
 This project uses the following technologies:
@@ -21,7 +21,7 @@ This project uses the following technologies:
 -MongoDB for the database
 -Redux for state management between React components
 
-#--Instructions--
+# --Instructions--
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
