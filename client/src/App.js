@@ -10,7 +10,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-import Game from "./components/game/Game";
+import Trip from "./components/trip/Trip";
 
 import { Auth } from "./auth/auth";
 
@@ -54,22 +54,6 @@ const theme = {
          font-weight: 500;
          line-height: normal;
     `
-      //   ${!props.primary &&
-      //     `
-      //     border-color: ${rgba(
-      //       normalizeColor(props.colorValue, props.theme),
-      //       0.5
-      //     )};
-      //     color: ${normalizeColor(props.colorValue, props.theme)};
-      //     :hover {
-      //        box-shadow: none;
-      //        background-color: ${rgba(
-      //          normalizeColor(props.colorValue, props.theme),
-      //          0.08
-      //        )};
-      //      }
-      //    `}
-      //  `
   }
 };
 
@@ -85,7 +69,7 @@ export default function() {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/games/:gameId" component={Game} />
+              <PrivateRoute exact path="/trips/:tripId" component={Trip} />
             </Switch>
           </div>
         </Router>

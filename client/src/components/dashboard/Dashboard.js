@@ -16,13 +16,13 @@ export default function Dashboard({ history }) {
   const [lastDay, setLastDay] = useState("2020-02-13");
 
   useEffect(() => {
-    console.log(" Data lodated for the dashboard");
+    console.log(" Data loaded for the dashboard");
     setTimeout(() => {
       fetch(`/api/trips/${user.id}`)
         .then(res => res.json())
         .then(res => {
-          console.log(res);
-          setTrips(res.trips);
+          console.log("XXXX: ", res);
+          setTrips(res);
         });
     }, 1000);
   }, []);
@@ -117,31 +117,24 @@ export default function Dashboard({ history }) {
         </Box>
         <div>
           <h1>MY Trips</h1>
-          {/* <div>
+          <div>
             {trips.map(trip => (
               <div>
-                <span to={`/trips/${user.id}`}>
-                  {user.id} => {trip.trip}
-                </span>
-                <Button
+                <button
                   onClick={() => {
-                    axios({
-                      url: `/api/trips/join/${trip._id}`,
-                      method: "PUT",
-                      data: {
-                        ...trip,
-                        o: user.id
-                      }
-                    }).then(res => {
-                      console.log(res);
-                      history.push(`/trips/${trip.id}`);
+                    console.log("trip = ", trip);
+                    axios.get(`/api/trips/trip/${trip.tripId}`).then(res => {
+                      console.log(res.data);
+                      // history.push(`api/trips/$trip.id`);
                     });
                   }}
-                  label="JOIN"
-                />
+                  label="GoToTrip"
+                >
+                  {trip.TripName}, {trip.firstDay}
+                </button>
               </div>
             ))}
-          </div> */}
+          </div>
         </div>
       </Box>
     </>
