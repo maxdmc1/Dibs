@@ -14,16 +14,16 @@ function Menu() {
     
       
     
-    <Navbar fixed="top">
+    <Navbar fixed="top" >
         
           
             
 
 
     
-      <Nav className="justify-content-center">
+      <Nav className="sticky-nav" >
         <Dropdown>
-          <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+          <Dropdown.Toggle variant="warning" id="dropdown-basic">
             Trip Selector
         </Dropdown.Toggle>
 
