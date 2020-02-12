@@ -69,7 +69,7 @@ export default function() {
             <Route exact path="/login" component={Login} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              <PrivateRoute exact path="/trips/:tripId" component={Trip} />
+              <PrivateRoute exact path="/trips/tripsummary" component={Trip} />
             </Switch>
           </div>
         </Router>

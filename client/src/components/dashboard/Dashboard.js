@@ -21,13 +21,11 @@ export default function Dashboard({ history }) {
       fetch(`/api/trips/${user.id}`)
         .then(res => res.json())
         .then(res => {
-          console.log("XXXX: ", res);
+          console.log("trips for current user: ", res);
           setTrips(res);
         });
     }, 1000);
   }, []);
-
-  console.log("wwwtttfff");
   return (
     <>
       <div
@@ -123,10 +121,11 @@ export default function Dashboard({ history }) {
                 <button
                   onClick={() => {
                     console.log("trip = ", trip);
-                    axios.get(`/api/trips/trip/${trip.tripId}`).then(res => {
-                      console.log(res.data);
-                      history.push(`/trips/${trip.id}`);
-                    });
+
+                    // axios.get(`/api/trips/trip/${trip.tripId}`).then(res => {
+                    //   console.log("Trip response", )
+                    history.push(`/trips/tripsummary?id=${trip.tripId}`);
+                    // });
                   }}
                   label="GoToTrip"
                 >

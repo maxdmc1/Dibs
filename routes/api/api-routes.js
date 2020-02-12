@@ -98,7 +98,7 @@ module.exports = {
         }
       );
     });
-    // Post Route for a new Trip - All Trip Routes work
+    // Route for a new Trip - All Trip Routes work
     app.get("/api/trips", function(req, res) {
       db.Trips.findAll({}).then(function(Trips) {
         res.json(Trips);
@@ -109,15 +109,28 @@ module.exports = {
     app.get("/api/trips/:userId", async function(req, res) {
       const userId = req.params.userId;
       try {
-        const userTrips = await db.sequelize.query(
-          // `SELECT * FROM dibs_db.Trips`,
-          `SELECT TripName, firstDay, tripId
-          FROM dibs_db.TripUsers AS TU 
-          JOIN dibs_db.Trips AS T ON TU.TripId = T.id 
-          WHERE TU.UserId = ${userId}`,
-          { type: QueryTypes.SELECT }
+        // const userTrips = await db.sequelize.query(
+        //   `SELECT TripName, firstDay, tripId
+        //   FROM dibs_db.TripUsers AS TU
+        //   JOIN dibs_db.Trips AS T ON TU.TripId = T.id
+        //   WHERE TU.UserId = ${userId}`,
+        //   { type: QueryTypes.SELECT }
+        // );  BCBrian fixed this section for deployment - db permissions error due to SQL Query in sequelize
+        const tripUsers = await db.TripUsers.findAll({
+          where: {
+            UserId: userId
+          }
+        });
+        console.log(
+          ">>>>>>>>>>>>>>>",
+          tripUsers.map(({ TripId }) => TripId)
         );
-        console.log(userTrips);
+        const userTrips = await db.Trips.findAll({
+          where: {
+            id: tripUsers.map(({ TripId }) => TripId)
+          }
+        });
+        console.log(">>>", userTrips);
         res.json(userTrips);
       } catch (err) {
         console.log(err);
@@ -165,11 +178,11 @@ module.exports = {
     });
 
     app.get("/api/trips/trip/:tripId", async function(req, res) {
-      console.log(req.params.tripId);
+      console.log("tripID = ", req.params.tripId);
       const tripId = req.params.tripId;
       try {
         const currentTrip = await db.Trips.findAll({ where: { id: tripId } });
-        console.log(currentTrip);
+        console.log("This is the selected Trip: ", currentTrip);
         res.json(currentTrip);
       } catch (err) {
         console.log(err);
