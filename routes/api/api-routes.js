@@ -44,26 +44,26 @@ module.exports = {
 
     // PUT route for updating a bedroom
 
-    // app.put("/api/bedrooms/:id", function(req, res) {
-    //   console.log(req.params.id);
-    //   db.Bedrooms.update(
-    //     { reserved: true },
-    //     { where: { id: req.params.id } }
-    //   ).then(function(Bedrooms) {
-    //     res.json(Bedrooms);
-    //   });
-    // });
-
     app.put("/api/bedrooms/:id", function(req, res) {
-      db.Bedrooms.findOne(
-        { where: { id: req.params.id } }.then(updatedBedroom => {
-          updatedBedroom.update({
-            reserved: true,
-            name: req.body
-          });
-        })
-      );
+      console.log(req.params.id);
+      db.Bedrooms.update(
+        { reserved: true },
+        { where: { id: req.params.id } }
+      ).then(function(Bedrooms) {
+        res.json(Bedrooms);
+      });
     });
+
+    // app.put("/api/bedrooms/:id", function(req, res) {
+    //   db.Bedrooms.findOne(
+    //     { where: { id: req.params.id } }.then(updatedBedroom => {
+    //       updatedBedroom.update({
+    //         reserved: true,
+    //         name: req.body
+    //       });
+    //     })
+    //   );
+    // });
 
     // Get Route for retrieving grocery list - works
     app.get("/api/groceries", function(req, res) {

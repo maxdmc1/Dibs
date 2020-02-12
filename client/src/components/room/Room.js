@@ -6,15 +6,25 @@ export default function Room() {
   const [name, setName] = useState("");
   const [aboutRoom, setAboutRoom] = useState("");
 
-  useEffect(() => {
-    console.log("Loading Data into State");
-  }, []);
+  useEffect(() =>{
+  axios.get("/api/bedrooms")
+
+  .then((res)=>{
+    setReserved(res.data)
+  })
+
+}, [])
 
   return (
-    <>
-      <div>
-        <h1>Hi</h1>
+
+      <div>   
+      <>
+        {setReserved.map(room =>
+          <p key={room.reserved}>
+          </p>
+        )}
+        </>
       </div>
-    </>
+      
   );
 }
