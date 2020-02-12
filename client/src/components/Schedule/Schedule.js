@@ -15,7 +15,7 @@ export default function Schedule() {
   useEffect(() => {}, []);
 
   return (
-    <Box direction="row" background="brand" pad="medium">
+    <Box direction="row" background="blue" pad="medium">
       <div>
         <input
           value={mornMeal}
@@ -92,7 +92,7 @@ export default function Schedule() {
               .then(res => res.json())
               .then(res => console.log(res));
           }}
-          label="Create Schedule"
+          label="Dibs!"
         />
       </div>
     </Box>

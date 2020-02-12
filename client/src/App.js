@@ -15,6 +15,7 @@ import Trip from "./components/trip/Trip";
 import { Auth } from "./auth/auth";
 
 import "./App.css";
+import LogoHeader from "./components/LogoHeader";
 
 const theme = {
   global: {
@@ -63,7 +64,7 @@ export default function() {
       <Auth>
         <Router>
           <div className="App">
-            <Navbar />
+            <LogoHeader />
             <Route exact path="/" component={Landing} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
